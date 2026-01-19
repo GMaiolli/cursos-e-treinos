@@ -1,20 +1,122 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# 🚀 Programa de Treinamento Técnico
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Este repositório foi criado para apoiar o **programa de treinamento de desenvolvedores**, permitindo que cada participante desenvolva projetos práticos em diferentes tecnologias.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+O objetivo é aprender **na prática**, através de desafios progressivos, seguindo uma trilha de aprendizagem definida.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+---
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## 📁 Estrutura do Repositório
+
+```
+/
+├── Backend/
+│ ├── java/
+│ └── dotnet/
+│
+├── Frontend/
+│ ├── angular/
+│ └── react/
+│
+└── README.md
+```
+
+Cada pasta possui um `README.md` próprio com orientações específicas da tecnologia.
+
+---
+
+## 🎯 Objetivos do Programa
+
+- Desenvolver habilidades técnicas reais
+- Simular o dia a dia de projetos profissionais
+- Trabalhar versionamento com Git
+- Aprender boas práticas de organização
+- Evoluir gradualmente do básico ao avançado
+
+## 👨‍💻 Como Funciona
+
+- Cada desenvolvedor trabalhará **em sua própria branch**
+- Os projetos devem ser criados dentro da pasta da tecnologia escolhida
+- Cada desafio deve conter:
+  - Código-fonte
+  - README explicativo
+
+## 🌿 Padrão de Branches
+
+Cada desenvolvedor deve utilizar a sua própria branch.
+
+## 🔧 Configuração Inicial do Git
+
+### 1️⃣ Clonar o repositório
+
+```bash
+git clone https://db1global.visualstudio.com/DefaultCollection/Forma%C3%A7%C3%A3o%20DGS/_git/Forma%C3%A7%C3%A3o%20DGS
+```
+
+### 2️⃣ Ir para a sua branch
+
+```bash
+git checkout nome-da-sua-branch
+```
+
+### 3️⃣ Verificar a branch atual (Opcional)
+
+```bash
+git branch
+```
+A branch marcada com * é a que você está utilizando.
+
+---
+
+## 💾 Fluxo Básico de Git
+
+### 📍 Verificar alterações
+
+```bash
+git status
+```
+
+### ➕ Adicionar arquivos
+
+Adicionar tudo:
+```bash
+git add .
+```
+
+Ou arquivos específicos:
+```bash
+git add caminho/do/arquivo
+```
+
+### 📝 Criar commit
+```bash
+git commit -m "feat: cria desafio 01 - fundamentos"
+```
+
+### ⬆️ Enviar para o repositório remoto
+```bash
+git push origin nome-da-sua-branch
+```
+
+---
+
+## 🚫 O que NÃO deve ser enviado
+
+- node_modules
+- target
+- bin
+- obj
+- .idea
+- .vscode
+- Arquivos de build
+- Senhas ou tokens
+
+**Utilize sempre o .gitignore.**
+
+---
+
+## 📚 Materiais de Apoio
+
+- https://git-scm.com/book/pt-br/v2
+- https://learngitbranching.js.org/
+- https://www.atlassian.com/git/tutorials
