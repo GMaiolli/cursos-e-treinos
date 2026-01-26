@@ -1,25 +1,13 @@
 <div class="tela-criacao">
     <h1 class="texto-inicial-formulario">Criar novo Usuário</h1>
-    <main class="form-wrapper">
-        <form (ngSubmit)="emitirUsuarioAtualizado()" class="form" ngNativeValidate>
+    <section class="formulario">
+        <form [formGroup]="usuarioFormulario" (ngSubmit)="emitirUsuarioAtualizado()">
             <h2 class="titulo">Dados do Usuário</h2>
             <div class="campos">
-                <label  class="campo-grupo">
-                    Nome
-                    <div class="input-wrapper">
-                        <input [(ngModel)] = "nomeUsuario" type="text" class="input-nome" name = "nome" required>
-                    </div>
-                </label>
-
-                <label class="campo-grupo">
-                    E-mail
-                    <div class="input-wrapper">
-                        <input [(ngModel)] = "emailUsuario" type="text" class="input-email" name = "email" required>
-                    </div>
-                </label>
-                
+                <app-campo-texto label="Nome", id="nome", placeholder="Digite o nome do usuário" formControlName="nome"/>
+                <app-campo-texto label="Email", id="email", placeholder="Digite o email do usuário" formControlName="email"/>
             </div>
             <button class="botao-confirmar-criacao">Criar</button>
         </form>
-    </main>
+    </section>
 </div>
