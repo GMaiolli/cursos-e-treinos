@@ -3,4 +3,7 @@
         <h3 class="nome">{{usuario().nome}}</h3>
         <h3 class="email">{{usuario().email}}</h3>
     </div>
+    <app-botao-padronizado 
+        [rota]="['/edicao', usuario().id]"
+     tipoDeBotao="secundario" texto="Editar" icone="edit"/>
 </section>
