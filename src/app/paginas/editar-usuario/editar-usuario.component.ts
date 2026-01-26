@@ -20,6 +20,7 @@ export class EditarUsuarioComponent implements OnInit{
     private usuarioService: UsuarioService,
     private activatedRoute: ActivatedRoute,
     private router: Router
+    // private cdr: ChangeDetectorRef
   ){}
 
   ngOnInit(){
@@ -28,7 +29,8 @@ export class EditarUsuarioComponent implements OnInit{
     if(id){
       this.usuarioService.obterUsuarioPorId(id).subscribe((usuario) =>
       {
-        this.usuario = usuario
+        this.usuario = usuario;
+        // this.cdr.detectChanges();
       })
     }
   }

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { ChangeDetectorRef, CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 
@@ -23,6 +23,8 @@ export class CampoTextoComponent implements ControlValueAccessor{
 
   private innerValue: any;
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
   get value() {
     return this.innerValue;
   }
@@ -39,6 +41,7 @@ export class CampoTextoComponent implements ControlValueAccessor{
 
   writeValue(v: string): void {
     this.innerValue = v;
+    this.cdr.markForCheck();
   }
 
   registerOnChange(fn: any): void {

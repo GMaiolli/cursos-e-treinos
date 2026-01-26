@@ -17,7 +17,7 @@ import { BotaoPadronizadoComponent } from '../../componentes/botao-padronizado/b
 export class TelaInicialComponent implements OnInit{
 
   listaUsuarios: Usuario[] = []
-
+  // listaUsuarios = output<Usuario[]>;
   constructor(private usuarioService: UsuarioService){
 
   }

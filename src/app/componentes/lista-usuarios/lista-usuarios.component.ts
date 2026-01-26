@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { Usuario } from '../usuario/usuario';
 import { UsuarioComponent } from "../usuario/usuario.component";
@@ -9,16 +9,17 @@ import { UsuarioComponent } from "../usuario/usuario.component";
   templateUrl: './lista-usuarios.component.html',
   styleUrl: './lista-usuarios.component.css',
 })
-export class ListaUsuariosComponent{
+export class ListaUsuariosComponent implements OnInit{
   listaUsuarios: Usuario[] = []
 
-  constructor(private usuarioService: UsuarioService){
+  constructor(private usuarioService: UsuarioService, private cdr: ChangeDetectorRef){
 
   }
 
   ngOnInit(){
     this.usuarioService.obterUsuarios().subscribe(res => {
-      this.listaUsuarios = res
+      this.listaUsuarios = res;
+      this.cdr.detectChanges(); //foi a solução encontrada.
     })
 
   }
