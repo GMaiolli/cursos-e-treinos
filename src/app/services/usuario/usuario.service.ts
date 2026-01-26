@@ -15,7 +15,16 @@ export class UsuarioService {
     return this.httpClient.get<Usuario[]>(this.API_URL)
   }
 
+  obterUsuarioPorId(id:string): Observable<Usuario>{
+    return this.httpClient.get<Usuario>(`${this.API_URL}/${id}`)
+  }
+
+
   adicionarUsuario(novoUsuario: Usuario): Observable<Usuario> {
     return this.httpClient.post<Usuario>(this.API_URL, novoUsuario)
+  }
+
+  editarUsuario(usuario: Usuario): Observable<Usuario> {
+    return this.httpClient.put<Usuario>(`${this.API_URL}/${usuario.id}`, usuario)
   }
 }

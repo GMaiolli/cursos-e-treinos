@@ -4,8 +4,8 @@
         <form [formGroup]="usuarioFormulario" (ngSubmit)="emitirUsuarioAtualizado()">
             <h2 class="titulo">Dados do Usuário</h2>
             <div class="campos">
-                <app-campo-texto label="Nome", id="nome", placeholder="Digite o nome do usuário" formControlName="nome"/>
-                <app-campo-texto label="Email", id="email", placeholder="Digite o email do usuário" formControlName="email"/>
+                <app-campo-texto label="Nome" id="nome" placeholder="Digite o nome do usuário" formControlName="nome"/>
+                <app-campo-texto label="Email" id="email" placeholder="Digite o email do usuário" formControlName="email"/>
             </div>
             <button class="botao-confirmar-criacao">Criar</button>
         </form>

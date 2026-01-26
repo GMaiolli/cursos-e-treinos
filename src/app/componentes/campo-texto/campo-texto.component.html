@@ -4,6 +4,8 @@
     [type]="tipo()"
     [id]="id()"
     [placeholder]="placeholder()"
-    [(ngModel)]="value"
+    [value]="value"
+    (input)="onInput($event)"
+    (blur)="onTouched()"
   >
 </div>

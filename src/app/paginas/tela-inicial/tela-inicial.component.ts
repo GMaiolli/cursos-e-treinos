@@ -6,10 +6,11 @@ import { BotaoComponent } from "../../componentes/botao/botao.component";
 import { ListaUsuariosComponent } from "../../componentes/lista-usuarios/lista-usuarios.component";
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { Usuario } from '../../componentes/usuario/usuario';
+import { BotaoPadronizadoComponent } from '../../componentes/botao-padronizado/botao-padronizado.component';
 
 @Component({
   selector: 'app-tela-inicial',
-  imports: [CabecalhoComponent, BarraPesquisaComponent, BotaoComponent, ListaUsuariosComponent],
+  imports: [CabecalhoComponent, BarraPesquisaComponent, BotaoComponent, ListaUsuariosComponent, BotaoPadronizadoComponent],
   templateUrl: './tela-inicial.component.html',
   styleUrl: './tela-inicial.component.css',
 })

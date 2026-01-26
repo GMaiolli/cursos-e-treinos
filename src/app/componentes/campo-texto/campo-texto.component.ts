@@ -1,12 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { ControlValueAccessor, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-campo-texto',
   imports: [ReactiveFormsModule, CommonModule, FormsModule],
   templateUrl: './campo-texto.component.html',
   styleUrl: './campo-texto.component.css',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: CampoTextoComponent,
+      multi: true
+    }
+  ]
 })
 export class CampoTextoComponent implements ControlValueAccessor{
   label = input<string>();
@@ -31,7 +38,7 @@ export class CampoTextoComponent implements ControlValueAccessor{
   onTouched: any = () => {};
 
   writeValue(v: string): void {
-    this.value = v;
+    this.innerValue = v;
   }
 
   registerOnChange(fn: any): void {
@@ -40,5 +47,9 @@ export class CampoTextoComponent implements ControlValueAccessor{
 
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
+  }
+
+  onInput(event: any) {
+    this.value = event.target.value;
   }
 }

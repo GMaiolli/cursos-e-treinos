@@ -1,17 +1,18 @@
-import { Component, input, output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
+import { Component, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Usuario } from '../usuario/usuario';
 import { nanoid } from 'nanoid';
 import { CampoTextoComponent } from "../campo-texto/campo-texto.component";
 import { UsuarioService } from '../../services/usuario/usuario.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-formulario-usuario',
-  imports: [FormsModule, CampoTextoComponent],
+  imports: [FormsModule, CampoTextoComponent, CommonModule, ReactiveFormsModule],
   templateUrl: './formulario-usuario.component.html',
   styleUrl: './formulario-usuario.component.css',
 })
-export class FormularioUsuarioComponent {
+export class FormularioUsuarioComponent implements OnChanges, OnInit {
   submitForm = output<Usuario>()
   usuario = input<Usuario | null>(null)
 
@@ -31,30 +32,31 @@ export class FormularioUsuarioComponent {
     const usuarioAtual = this.usuario();
     
     if (changes['usuario'] && usuarioAtual) {
-      // Sincronizamos os dados do input com as variáveis locais
-      this.nomeUsuario = usuarioAtual.nome;
-      this.emailUsuario = usuarioAtual.email;
+      // Sincronizamos os dados do input com o formulário
+      this.usuarioFormulario.patchValue({
+        nome: usuarioAtual.nome,
+        email: usuarioAtual.email
+      });
     }
   }
 
   inicializarUsuarioFormulario() {
     this.usuarioFormulario = this.formBuilder.group({
-      id: [''],
       nome: [''],
       email: ['']
     })
   };
 
 
-  nomeUsuario = "";
-  emailUsuario = "";
   emitirUsuarioAtualizado(){
-
-    novoUsuario: Usuario
-
-    const novoUsuario= new Usuario(this.nomeUsuario, this.emailUsuario)
-
-    this.submitForm.emit(novoUsuario)
-
+    const formValue = this.usuarioFormulario.value;
+    const existing = this.usuario();
+    if (existing) {
+      const updated = new Usuario(formValue.nome, formValue.email, existing.id);
+      this.submitForm.emit(updated);
+    } else {
+      const novo = new Usuario(formValue.nome, formValue.email);
+      this.submitForm.emit(novo);
+    }
   }
 }
