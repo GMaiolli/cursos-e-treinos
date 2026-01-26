@@ -27,4 +27,8 @@ export class UsuarioService {
   editarUsuario(usuario: Usuario): Observable<Usuario> {
     return this.httpClient.put<Usuario>(`${this.API_URL}/${usuario.id}`, usuario)
   }
+
+  excluirUsuario(id:string): Observable<void>{
+    return this.httpClient.delete<void>(`${this.API_URL}/${id}`)
+  }
 }

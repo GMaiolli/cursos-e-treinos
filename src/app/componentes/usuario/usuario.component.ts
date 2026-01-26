@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Usuario } from './usuario';
 import { CommonModule } from '@angular/common';
 import { BotaoPadronizadoComponent } from '../botao-padronizado/botao-padronizado.component';
@@ -12,7 +12,10 @@ import { BotaoPadronizadoComponent } from '../botao-padronizado/botao-padronizad
 export class UsuarioComponent {
 
   usuario = input.required<Usuario>();
+  excluirUsuario = output<string>();
 
-
+  excluir(){
+    this.excluirUsuario.emit(this.usuario().id)
+  }
 
 }

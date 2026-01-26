@@ -23,4 +23,13 @@ export class ListaUsuariosComponent{
 
   }
 
+  removerUsuario(id:string){
+    this.usuarioService.excluirUsuario(id).subscribe(() => {
+      this.deletarUsuarioDaLista(id)
+    })
+  }
+
+  deletarUsuarioDaLista(usuarioId: string){
+    this.listaUsuarios = this.listaUsuarios.filter(usuario => usuario.id !== usuarioId);
+  }
 }

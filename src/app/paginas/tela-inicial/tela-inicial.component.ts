@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, output } from '@angular/core';
 import { CabecalhoComponent } from "../../componentes/cabecalho/cabecalho.component";
 import { BarraPesquisaComponent } from "../../componentes/barra-pesquisa/barra-pesquisa.component";
 import { Router } from '@angular/router';
@@ -26,6 +26,7 @@ export class TelaInicialComponent implements OnInit{
     this.usuarioService.obterUsuarios().subscribe(res => {
       this.listaUsuarios = res
     })
+
 
   }
 

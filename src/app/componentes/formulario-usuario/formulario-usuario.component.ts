@@ -1,4 +1,4 @@
-import { Component, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Usuario } from '../usuario/usuario';
 import { nanoid } from 'nanoid';
@@ -20,7 +20,8 @@ export class FormularioUsuarioComponent implements OnChanges, OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private cdr: ChangeDetectorRef
   ){}
 
   ngOnInit() {
@@ -37,6 +38,7 @@ export class FormularioUsuarioComponent implements OnChanges, OnInit {
         nome: usuarioAtual.nome,
         email: usuarioAtual.email
       });
+      this.cdr.detectChanges();
     }
   }
 

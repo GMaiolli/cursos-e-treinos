@@ -5,5 +5,8 @@
         <app-botao-padronizado 
             [rota]="['/edicao', usuario().id]"
         tipoDeBotao="secundario" texto="Editar" icone="edit"/>
+        <app-botao-padronizado 
+        (click) = "excluir()"
+        tipoDeBotao="secundario" texto="Excluir" icone="delete"/>
     </div>
 </section>
