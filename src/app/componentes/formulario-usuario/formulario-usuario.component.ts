@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Usuario } from '../usuario/usuario';
+import { nanoid } from 'nanoid';
 
 @Component({
   selector: 'app-formulario-usuario',
@@ -8,13 +10,18 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './formulario-usuario.component.css',
 })
 export class FormularioUsuarioComponent {
-  
+  submitForm = output<Usuario>()
+
+
   nomeUsuario = "";
   emailUsuario = "";
-  aoSubmeter(){
-    console.log(this.nomeUsuario);
-    console.log(this.emailUsuario);
-    this.nomeUsuario = "";
-    this.emailUsuario = "";
+  emitirUsuarioAtualizado(){
+
+    novoUsuario: Usuario
+
+    const novoUsuario= new Usuario(this.nomeUsuario, this.emailUsuario)
+
+    this.submitForm.emit(novoUsuario)
+
   }
 }
