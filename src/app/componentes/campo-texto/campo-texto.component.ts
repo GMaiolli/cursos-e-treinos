@@ -1,16 +1,17 @@
-import { ChangeDetectorRef, CommonModule } from '@angular/common';
-import { Component, input } from '@angular/core';
+import {  CommonModule } from '@angular/common';
+import { Component, input, ChangeDetectorRef, forwardRef, } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-campo-texto',
+  standalone: true,
   imports: [ReactiveFormsModule, CommonModule, FormsModule],
   templateUrl: './campo-texto.component.html',
   styleUrl: './campo-texto.component.css',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: CampoTextoComponent,
+      useExisting: forwardRef(() => CampoTextoComponent),
       multi: true
     }
   ]
@@ -23,7 +24,7 @@ export class CampoTextoComponent implements ControlValueAccessor{
 
   private innerValue: any;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  // constructor(private cdr: ChangeDetectorRef) {}
 
   get value() {
     return this.innerValue;
@@ -41,7 +42,7 @@ export class CampoTextoComponent implements ControlValueAccessor{
 
   writeValue(v: string): void {
     this.innerValue = v;
-    this.cdr.markForCheck();
+    // this.cdr.markForCheck();
   }
 
   registerOnChange(fn: any): void {

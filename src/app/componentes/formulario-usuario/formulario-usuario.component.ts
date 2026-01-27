@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './formulario-usuario.component.html',
   styleUrl: './formulario-usuario.component.css',
 })
-export class FormularioUsuarioComponent implements OnChanges, OnInit {
+export class FormularioUsuarioComponent implements OnInit, OnChanges {
   submitForm = output<Usuario>()
   usuario = input<Usuario | null>(null)
 
@@ -29,16 +29,12 @@ export class FormularioUsuarioComponent implements OnChanges, OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // Verificamos se o 'usuario' mudou e se ele não é nulo
-    const usuarioAtual = this.usuario();
-    
-    if (changes['usuario'] && usuarioAtual) {
-      // Sincronizamos os dados do input com o formulário
+    if (changes['usuario'] && this.usuario()) {
       this.usuarioFormulario.patchValue({
-        nome: usuarioAtual.nome,
-        email: usuarioAtual.email
+        nome: this.usuario()!.nome,
+        email: this.usuario()!.email
       });
-      this.cdr.detectChanges();
+      // this.cdr.detectChanges();
     }
   }
 

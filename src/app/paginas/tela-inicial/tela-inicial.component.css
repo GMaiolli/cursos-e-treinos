@@ -1,0 +1,28 @@
+.secao-pesquisa {
+    display: flex;
+    align-items: stretch;
+    justify-content: center; /* alinhamento horizontal!*/
+    margin-bottom: 10px;
+    width: 100%;
+    margin-top: 20px; /* por que se eu aumento isso mais ele começa a andar na diagonal? */
+    /* background-color: red; */
+}
+
+.wrapper-posicionamento {
+    position: relative;
+    display:flex;
+    /* align-items: flex-start; */
+    justify-content: center;
+    width: 100vw;
+    padding: 0 20px; /* evitar botão de colar na borda ? */
+}
+
+.container-principal-usuarios {
+    /* background-color: ; */
+}
+
+.botao-adicionar-lateral {
+    position: absolute;
+    right: 100px;
+    top: 0
+}

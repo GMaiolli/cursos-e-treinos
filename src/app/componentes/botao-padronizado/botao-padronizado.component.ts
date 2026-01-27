@@ -1,10 +1,11 @@
 
 import { Component, input } from '@angular/core';
 import { RouterLink } from "@angular/router";
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-botao-padronizado',
-  imports: [RouterLink],
+  imports: [RouterLink, MatIconModule],
   templateUrl: './botao-padronizado.component.html',
   styleUrl: './botao-padronizado.component.css',
 })

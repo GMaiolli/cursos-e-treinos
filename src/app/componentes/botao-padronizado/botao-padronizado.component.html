@@ -1,5 +1,11 @@
-<button [routerLink]="rota()" [type]="tipo()" [class]="classeCss">
-    <i class="material-icons">{{icone()}}</i>
+<button [routerLink]="rota() ? rota(): null" [type]="tipo()" [class]="classeCss">
+    <!-- <i class="material-icons">{{icone()}}</i> -->
+    <!-- {{texto()}} -->
+    @if (icone()) {
+        <mat-icon> {{icone()}}</mat-icon>
+
+    }
     {{texto()}}
+    
 
 </button>

@@ -2,10 +2,11 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { Usuario } from '../usuario/usuario';
 import { UsuarioComponent } from "../usuario/usuario.component";
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-lista-usuarios',
-  imports: [UsuarioComponent],
+  imports: [UsuarioComponent, MatDividerModule],
   templateUrl: './lista-usuarios.component.html',
   styleUrl: './lista-usuarios.component.css',
 })

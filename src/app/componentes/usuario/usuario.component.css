@@ -1,0 +1,11 @@
+.informacoes-usuario {
+    display: flex; /* flexbox dnv, mas agora olocaremos lado a lado as info*/
+    padding: 16px; /* cria um "respiro interno", texto não encostando nas bordas */
+    align-items: center;
+}
+
+.coluna-nome, .coluna-email {
+    flex: 1; /* ambas colunas devem crescer e ocupar o mesmo espaço disponível (50% cada, nesse caso) */
+    font-family: var(--font-montserrat);
+    font-size: larger;
+}

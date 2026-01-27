@@ -1,12 +1,12 @@
 <section [ngClass]="usuario().id">
     <div class = informacoes-usuario>
-        <h3 class="nome">{{usuario().nome}}</h3>
-        <h3 class="email">{{usuario().email}}</h3>
+        <span class="coluna-nome">{{usuario().nome}}</span>
+        <span class="coluna-email">{{usuario().email}}</span>
         <app-botao-padronizado 
             [rota]="['/edicao', usuario().id]"
         tipoDeBotao="secundario" texto="Editar" icone="edit"/>
         <app-botao-padronizado 
-        (click) = "excluir()"
+        (click) = "excluir()" [rota]="[]"
         tipoDeBotao="secundario" texto="Excluir" icone="delete"/>
     </div>
 </section>

@@ -1,8 +1,14 @@
-<section class="lista-usuarios-wrapper">
-    <ul class="lista">
-        @for(usuario of listaUsuarios; track usuario){
-             <app-usuario [usuario]="usuario" (excluirUsuario)="removerUsuario($event)"/>   
-        }
-    </ul>
-    
-</section>
+<main class="container-principal-usuarios">
+    <section class="lista-usuarios-wrapper">
+        <div class="cabecalho-lista-usuarios">
+            <span class="coluna-nome">Nome</span>
+            <span class="coluna-email">E-mail</span>
+        </div>
+        <div class="lista-scroll">
+            @for(usuario of listaUsuarios; track usuario.id){
+                <app-usuario [usuario]="usuario" (excluirUsuario)="removerUsuario($event)"/>   
+                <mat-divider> </mat-divider>
+            }
+        </div>
+    </section>
+</main>
