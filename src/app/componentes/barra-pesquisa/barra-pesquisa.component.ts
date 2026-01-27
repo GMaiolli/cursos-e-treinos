@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -8,11 +8,14 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './barra-pesquisa.component.css',
 })
 export class BarraPesquisaComponent {
-  nomeUsuarioPesquisa = ""
+  nomeUsuarioPesquisa = signal('') //signal para o input
+  pesquisar = output<string>()
 
   aoSubmeter() {
-    console.log(this.nomeUsuarioPesquisa)
-    this.nomeUsuarioPesquisa = ""
+    this.pesquisar.emit(this.nomeUsuarioPesquisa())
+
+    // console.log(this.nomeUsuarioPesquisa)
+    // this.nomeUsuarioPesquisa = ""
   }
 
 }

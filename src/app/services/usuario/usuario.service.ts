@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from '../../componentes/usuario/usuario';
@@ -19,8 +19,8 @@ export class UsuarioService {
     return this.httpClient.get<Usuario>(`${this.API_URL}/${id}`)
   }
 
-  obterUsuariosPorNome(nome:string): Observable<Usuario[]>{
-    return this.httpClient.get<Usuario[]>(`${this.API_URL}/nome?=${nome}`)
+  obterUsuariosPorNome(params:HttpParams): Observable<Usuario[]>{
+    return this.httpClient.get<Usuario[]>(`${this.API_URL}/nome`, {nome})
   }
 
 

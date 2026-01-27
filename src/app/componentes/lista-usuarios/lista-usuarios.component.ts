@@ -13,6 +13,8 @@ import { MatDividerModule } from '@angular/material/divider';
 export class ListaUsuariosComponent implements OnInit{
   listaUsuarios: Usuario[] = []
 
+
+
   constructor(private usuarioService: UsuarioService, private cdr: ChangeDetectorRef){
 
   }

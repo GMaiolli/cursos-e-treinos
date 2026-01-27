@@ -17,12 +17,20 @@
     padding: 0 20px; /* evitar botão de colar na borda ? */
 }
 
-.container-principal-usuarios {
-    /* background-color: ; */
-}
-
 .botao-adicionar-lateral {
     position: absolute;
     right: 120px;
     top: 0
+}
+
+.container-busca {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.campo-busca {
+    width: 100%;
+    max-width: 600px; /* Largura ideal para um campo de busca */
 }
