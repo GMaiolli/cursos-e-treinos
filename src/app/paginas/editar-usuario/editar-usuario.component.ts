@@ -4,11 +4,14 @@ import { Usuario } from '../../componentes/usuario/usuario';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CabecalhoComponent } from "../../componentes/cabecalho/cabecalho.component";
-import { BotaoVoltarComponent } from '../../componentes/botao-voltar/botao-voltar.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { FormularioService } from '../../services/formulario/formulario.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-editar-usuario',
-  imports: [FormularioUsuarioComponent, CabecalhoComponent, BotaoVoltarComponent],
+  imports: [FormularioUsuarioComponent, CabecalhoComponent, MatButtonModule, MatIconModule, MatTooltipModule],
   templateUrl: './editar-usuario.component.html',
   styleUrl: './editar-usuario.component.css',
 })
@@ -19,7 +22,8 @@ export class EditarUsuarioComponent implements OnInit{
   constructor(
     private usuarioService: UsuarioService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private formularioService: FormularioService
     // private cdr: ChangeDetectorRef
   ){}
 
@@ -39,5 +43,9 @@ export class EditarUsuarioComponent implements OnInit{
     this.usuarioService.editarUsuario(usuario).subscribe(() => {
       this.router.navigate(['/inicio'])
     })
+  }
+
+  retornarInicio(){
+    this.formularioService.retornarInicio()
   }
 }

@@ -5,5 +5,53 @@
 
 .campos{
     display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /* justify-content: center; */
+    gap: 100px;
+}
 
+.cadatro-form__error {
+    color: #ff4d4d;
+    font-size: 12px;
+    height: 16px; /* Define uma altura fixa para a mensagem */
+    margin-top: 4px;
+    /* Garante que o erro não empurre o container para fora */
+}
+
+.botao-cancelar{
+    margin-top: 40px;
+    background-color: rgb(253, 62, 37) !important;
+}
+
+.botao-cancelar:hover {
+    background-color: rgb(167, 16, 16) !important; 
+}
+
+
+.botao-concluir{
+    margin-top: 40px;
+    background-color: rgb(17, 155, 47) !important;
+}
+
+.botao-concluir:hover {
+    background-color: rgb(9, 94, 27) !important; 
+}
+
+
+.container-acoes{
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+}
+
+.secao-nome{
+    display: flex;
+    flex-direction: column;
+}
+
+app-campo-texto {
+    display: flex;
+    flex-direction: column;
+    min-height: 100px; /* Ajuste esse valor para caber o label + input + erro */
 }

@@ -10,7 +10,7 @@
 
 .wrapper-posicionamento {
     position: relative;
-    display:flex;
+    /* display:flex; */
     /* align-items: flex-start; */
     justify-content: center;
     width: 100vw;
@@ -23,6 +23,6 @@
 
 .botao-adicionar-lateral {
     position: absolute;
-    right: 100px;
+    right: 120px;
     top: 0
 }

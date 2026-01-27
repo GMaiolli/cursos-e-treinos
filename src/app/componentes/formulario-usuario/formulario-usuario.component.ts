@@ -1,14 +1,19 @@
 import { ChangeDetectorRef, Component, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Usuario } from '../usuario/usuario';
 import { nanoid } from 'nanoid';
 import { CampoTextoComponent } from "../campo-texto/campo-texto.component";
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
+import { FormularioService } from '../../services/formulario/formulario.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-formulario-usuario',
-  imports: [FormsModule, CampoTextoComponent, CommonModule, ReactiveFormsModule],
+  imports: [FormsModule, CampoTextoComponent, CommonModule, ReactiveFormsModule, MatButtonModule, MatIconModule, MatTooltipModule],
   templateUrl: './formulario-usuario.component.html',
   styleUrl: './formulario-usuario.component.css',
 })
@@ -21,7 +26,8 @@ export class FormularioUsuarioComponent implements OnInit, OnChanges {
   constructor(
     private formBuilder: FormBuilder,
     private usuarioService: UsuarioService,
-    private cdr: ChangeDetectorRef
+    private router: Router,
+    private formularioService: FormularioService
   ){}
 
   ngOnInit() {
@@ -40,8 +46,8 @@ export class FormularioUsuarioComponent implements OnInit, OnChanges {
 
   inicializarUsuarioFormulario() {
     this.usuarioFormulario = this.formBuilder.group({
-      nome: [''],
-      email: ['']
+      nome: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]]
     })
   };
 
@@ -56,5 +62,10 @@ export class FormularioUsuarioComponent implements OnInit, OnChanges {
       const novo = new Usuario(formValue.nome, formValue.email);
       this.submitForm.emit(novo);
     }
+  }
+
+  retornarInicio(){
+    this.formularioService.retornarInicio();
+
   }
 }
