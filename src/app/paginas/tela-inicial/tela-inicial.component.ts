@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
+import { Component, input, OnChanges, OnInit, output, signal, SimpleChanges } from '@angular/core';
 import { CabecalhoComponent } from "../../componentes/cabecalho/cabecalho.component";
 import { BarraPesquisaComponent } from "../../componentes/barra-pesquisa/barra-pesquisa.component";
 import { Router } from '@angular/router';
@@ -18,30 +18,40 @@ import { HttpParams } from '@angular/common/http';
 })
 export class TelaInicialComponent implements OnInit{
 
-  listaUsuarios: Usuario[] = []
-  // listaUsuarios = output<Usuario[]>;
+  // listaUsuarios: Usuario[] = []
+  listaUsuarios = signal<Usuario[]>([]);
+  usuarioExcluido = input<string>();
   constructor(private usuarioService: UsuarioService){
 
   }
 
   ngOnInit(){
     this.usuarioService.obterUsuarios().subscribe(res => {
-      this.listaUsuarios = res
+      this.listaUsuarios.set(res)
     })
 
 
   }
 
   buscarUsuario(nome: string){
-    if(!nome.trim()) return; //vai buscar nada se estiver vazio
+    if(!nome.trim()) {
+        this.ngOnInit();  
+        return ; //vai buscar nada se estiver vazio
+    }
 
     const params = new HttpParams().set('nome', nome)
 
     this.usuarioService.obterUsuariosPorNome(params).subscribe({
       next: (usuariosFiltrados) => {
-        this.listaUsuarios = usuariosFiltrados;
+        this.listaUsuarios.set(usuariosFiltrados);
       }
     })
+  }
+
+  removerUsuarioDaLista(usuarioId: string){
+    this.listaUsuarios.update(lista => lista.filter(u => u.id !== usuarioId))
+
+    // this.listaUsuarios = this.listaUsuarios.filter(usuario => usuario.id !== usuarioId);
   }
 
   // ngOnChanges(changes: SimpleChanges): void {

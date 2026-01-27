@@ -5,7 +5,7 @@
         <button (click)="barra.aoSubmeter()" class="botao-lupa"><mat-icon>search</mat-icon></button>
     </div>
     <div class="wrapper-posicionamento">
-        <app-lista-usuarios />
+        <app-lista-usuarios [listaUsuarios]="listaUsuarios()" (usuarioExcluido)="removerUsuarioDaLista($event)"/>
         <app-botao-padronizado class="botao-adicionar-lateral" icone="add" rota="/criacao" tipo="submit" texto="Novo Usuário" />
     </div>
 

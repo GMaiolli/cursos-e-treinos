@@ -20,7 +20,7 @@ export class UsuarioService {
   }
 
   obterUsuariosPorNome(params:HttpParams): Observable<Usuario[]>{
-    return this.httpClient.get<Usuario[]>(`${this.API_URL}/nome`, {nome})
+    return this.httpClient.get<Usuario[]>(`${this.API_URL}/`, { params })
   }
 
 

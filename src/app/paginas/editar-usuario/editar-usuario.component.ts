@@ -25,18 +25,23 @@ export class EditarUsuarioComponent implements OnInit{
     private router: Router,
     private formularioService: FormularioService
     // private cdr: ChangeDetectorRef
-  ){}
+  ){
+    const navegacao = this.router.getCurrentNavigation();
+    this.usuario = navegacao?.extras.state?.['usuario'];
+    console.log(this.usuario)
+  }
 
   ngOnInit(){
-    const id = this.activatedRoute.snapshot.paramMap.get("id");
 
-    if(id){
-      this.usuarioService.obterUsuarioPorId(id).subscribe((usuario) =>
-      {
-        this.usuario = usuario;
-        // this.cdr.detectChanges();
-      })
-    }
+    // const id = this.activatedRoute.snapshot.paramMap.get("id");
+
+    // if(id){
+    //   this.usuarioService.obterUsuarioPorId(id).subscribe((usuario) =>
+    //   {
+    //     this.usuario = usuario;
+    //     // this.cdr.detectChanges();
+    //   })
+    // }
   }
 
   editarUsuario(usuario: Usuario){

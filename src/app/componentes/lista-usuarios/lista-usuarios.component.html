@@ -5,7 +5,7 @@
             <span class="coluna-email">E-mail</span>
         </div>
         <div class="lista-scroll">
-            @for(usuario of listaUsuarios; track usuario.id){
+            @for(usuario of listaUsuarios(); track usuario.id){
                 <app-usuario [usuario]="usuario" (excluirUsuario)="removerUsuario($event)"/>   
                 <mat-divider> </mat-divider>
             }

@@ -3,7 +3,7 @@
         <span class="coluna-nome">{{usuario().nome}}</span>
         <span class="coluna-email">{{usuario().email}}</span>
         <app-botao-padronizado 
-            [rota]="['/edicao', usuario().id]"
+            [rota]="['/edicao', usuario().id]" [usuario]="usuario()"
         tipoDeBotao="secundario" texto="Editar" icone="edit"/>
         <app-botao-padronizado 
         (click) = "excluir()" [rota]="[]"

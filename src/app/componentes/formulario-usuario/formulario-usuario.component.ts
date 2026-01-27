@@ -35,20 +35,29 @@ export class FormularioUsuarioComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['usuario'] && this.usuario()) {
-      this.usuarioFormulario.patchValue({
-        nome: this.usuario()!.nome,
-        email: this.usuario()!.email
-      });
-      // this.cdr.detectChanges();
-    }
+    // if (changes['usuario'] && this.usuario()) {
+    //   this.usuarioFormulario.patchValue({
+    //     nome: this.usuario()!.nome,
+    //     email: this.usuario()!.email
+    //   });
+    //   // this.cdr.detectChanges();
+    // }
   }
 
   inicializarUsuarioFormulario() {
-    this.usuarioFormulario = this.formBuilder.group({
-      nome: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
+    if(this.usuario()){
+      this.usuarioFormulario = this.formBuilder.group({
+      nome: [this.usuario()?.nome, Validators.required],
+      email: [this.usuario()?.email, [Validators.required, Validators.email]]
     })
+    }else{
+      this.usuarioFormulario = this.formBuilder.group({
+        nome: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]]
+      })
+
+    }
+
   };
 
 
