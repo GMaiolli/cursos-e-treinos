@@ -31,17 +31,18 @@ export class EditarUsuarioComponent implements OnInit{
     console.log(this.usuario)
   }
 
-  ngOnInit(){
+  ngOnInit(){ //isso aqui acredito que esteja redundante, pois estou enviando por state através do botão, ver melhor
+              //se descomentar não acha o erro 404 aqui
 
-    // const id = this.activatedRoute.snapshot.paramMap.get("id");
+    const id = this.activatedRoute.snapshot.paramMap.get("id");
 
-    // if(id){
-    //   this.usuarioService.obterUsuarioPorId(id).subscribe((usuario) =>
-    //   {
-    //     this.usuario = usuario;
-    //     // this.cdr.detectChanges();
-    //   })
-    // }
+    if(id){
+      this.usuarioService.obterUsuarioPorId(id).subscribe((usuario) =>
+      {
+        this.usuario = usuario;
+        // this.cdr.detectChanges();
+      })
+    }
   }
 
   editarUsuario(usuario: Usuario){
