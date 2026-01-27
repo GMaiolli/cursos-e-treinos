@@ -1,59 +1,45 @@
-# DesafioTecnico
+# Desafio Tecnico - Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.1.
+Esse projeto foi construído com base nas especificações disponíveis no seguinte link: https://www.notion.so/Desafio-T-cnico-Frontend-Trainee-2f0e0abd50d08078bae2e74ad1d0324b
 
-## Development server
+## Pré-requisitos
 
-To start a local development server, run:
+Antes de executar este projeto, certifique-se de ter os seguintes itens instalados:
 
-```bash
-ng serve
-```
+- **Node.js** (versão 18 ou superior) e **npm** (versão 10 ou superior)
+- **Angular CLI** (versão 21.1.1 ou superior)
+  ```bash
+  npm install -g @angular/cli
+  ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Dependências principais do projeto:
 
-## Code scaffolding
+- **Angular** (v21.1.0) - Framework principal
+- **Angular Router** - Roteamento da aplicação
+- **Angular Material** (v21.1.1) - Componentes de UI
+- **Angular Forms** - Formulários e validações
+- **RxJS** - Programação reativa
+- **TypeScript** (v5.9.2) - Linguagem de programação
+- **json-server** - Servidor simulado para a API (backend)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+# Como executar
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Para executar o projeto, é preciso executar o frontend do projeto com o comando:
 
 ```bash
-ng build
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Depois disso, em outro terminal, é preciso ir da pasta raiz do projeto até a pasta de backend com:
 
 ```bash
-ng test
+cd backend
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+E então executar o Json Server com o comando:
 
 ```bash
-ng e2e
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Após isso, basta entrar no link http://localhost:4200/ para testar a aplicação!

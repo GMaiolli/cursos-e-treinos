@@ -4,6 +4,11 @@ import { CriacaoComponent } from './paginas/criacao/criacao.component';
 import { EditarUsuarioComponent } from './paginas/editar-usuario/editar-usuario.component';
 
 export const routes: Routes = [
+    {
+        path: '',
+        redirectTo: '/inicio',
+        pathMatch: 'full'
+    },
     {path: "inicio", component: TelaInicialComponent},
     {path: "criacao", component: CriacaoComponent },
     {path: "edicao/:id", component: EditarUsuarioComponent }
