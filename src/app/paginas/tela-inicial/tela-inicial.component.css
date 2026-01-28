@@ -1,0 +1,38 @@
+.secao-pesquisa {
+    display: flex;
+    align-items: stretch;
+    justify-content: center; /* alinhamento horizontal!*/
+    margin-bottom: 10px;
+    width: 100%;
+    margin-top: 20px; /* por que se eu aumento isso mais ele começa a andar na diagonal? */
+    
+}
+
+.wrapper-posicionamento {
+    position: relative;
+    /* display:flex; */
+    /* align-items: flex-start; */
+    justify-content: center;
+    width: 100vw;
+    padding: 0 20px; /* evitar botão de colar na borda ? */
+}
+
+.botao-adicionar-lateral {
+    position: absolute; 
+    right: 210px;
+    top: 0;
+    
+}
+
+.container-busca {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.campo-busca {
+    width: 100%;
+    max-width: 600px; /* Largura ideal para um campo de busca */
+}
+

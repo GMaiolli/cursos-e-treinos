@@ -1,122 +1,45 @@
-# 🚀 Programa de Treinamento Técnico
+# Desafio Tecnico - Angular
 
-Este repositório foi criado para apoiar o **programa de treinamento de desenvolvedores**, permitindo que cada participante desenvolva projetos práticos em diferentes tecnologias.
+Esse projeto foi construído com base nas especificações disponíveis no seguinte link: https://www.notion.so/Desafio-T-cnico-Frontend-Trainee-2f0e0abd50d08078bae2e74ad1d0324b
 
-O objetivo é aprender **na prática**, através de desafios progressivos, seguindo uma trilha de aprendizagem definida.
+## Pré-requisitos
 
----
+Antes de executar este projeto, certifique-se de ter os seguintes itens instalados:
 
-## 📁 Estrutura do Repositório
+- **Node.js** (versão 18 ou superior) e **npm** (versão 10 ou superior)
+- **Angular CLI** (versão 21.1.1 ou superior)
+  ```bash
+  npm install -g @angular/cli
+  ```
 
-```
-/
-├── Backend/
-│ ├── java/
-│ └── dotnet/
-│
-├── Frontend/
-│ ├── angular/
-│ └── react/
-│
-└── README.md
-```
+### Dependências principais do projeto:
 
-Cada pasta possui um `README.md` próprio com orientações específicas da tecnologia.
+- **Angular** (v21.1.0) - Framework principal
+- **Angular Router** - Roteamento da aplicação
+- **Angular Material** (v21.1.1) - Componentes de UI
+- **Angular Forms** - Formulários e validações
+- **RxJS** - Programação reativa
+- **TypeScript** (v5.9.2) - Linguagem de programação
+- **json-server** - Servidor simulado para a API (backend)
 
----
+# Como executar
 
-## 🎯 Objetivos do Programa
-
-- Desenvolver habilidades técnicas reais
-- Simular o dia a dia de projetos profissionais
-- Trabalhar versionamento com Git
-- Aprender boas práticas de organização
-- Evoluir gradualmente do básico ao avançado
-
-## 👨‍💻 Como Funciona
-
-- Cada desenvolvedor trabalhará **em sua própria branch**
-- Os projetos devem ser criados dentro da pasta da tecnologia escolhida
-- Cada desafio deve conter:
-  - Código-fonte
-  - README explicativo
-
-## 🌿 Padrão de Branches
-
-Cada desenvolvedor deve utilizar a sua própria branch.
-
-## 🔧 Configuração Inicial do Git
-
-### 1️⃣ Clonar o repositório
+Para executar o projeto, é preciso executar o frontend do projeto com o comando:
 
 ```bash
-git clone https://db1global.visualstudio.com/DefaultCollection/Forma%C3%A7%C3%A3o%20DGS/_git/Forma%C3%A7%C3%A3o%20DGS
+npm start
 ```
 
-### 2️⃣ Ir para a sua branch
+Depois disso, em outro terminal, é preciso ir da pasta raiz do projeto até a pasta de backend com:
 
 ```bash
-git checkout nome-da-sua-branch
+cd backend
 ```
 
-### 3️⃣ Verificar a branch atual (Opcional)
+E então executar o Json Server com o comando:
 
 ```bash
-git branch
-```
-A branch marcada com * é a que você está utilizando.
-
----
-
-## 💾 Fluxo Básico de Git
-
-### 📍 Verificar alterações
-
-```bash
-git status
+npm start
 ```
 
-### ➕ Adicionar arquivos
-
-Adicionar tudo:
-```bash
-git add .
-```
-
-Ou arquivos específicos:
-```bash
-git add caminho/do/arquivo
-```
-
-### 📝 Criar commit
-```bash
-git commit -m "feat: cria desafio 01 - fundamentos"
-```
-
-### ⬆️ Enviar para o repositório remoto
-```bash
-git push origin nome-da-sua-branch
-```
-
----
-
-## 🚫 O que NÃO deve ser enviado
-
-- node_modules
-- target
-- bin
-- obj
-- .idea
-- .vscode
-- Arquivos de build
-- Senhas ou tokens
-
-**Utilize sempre o .gitignore.**
-
----
-
-## 📚 Materiais de Apoio
-
-- https://git-scm.com/book/pt-br/v2
-- https://learngitbranching.js.org/
-- https://www.atlassian.com/git/tutorials
+Após isso, basta entrar no link http://localhost:4200/ para testar a aplicação!
