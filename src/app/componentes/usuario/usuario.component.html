@@ -5,6 +5,16 @@
         <app-botao-padronizado 
             [rota]="['/edicao', usuario().id]" [usuario]="usuario()"
         tipoDeBotao="secundario" texto="Editar" icone="edit"/>
+        <!-- <button matIconButton aria-label="Botão de editar usuário">
+            <mat-icon>edit</mat-icon>
+        </button> -->
+        <!-- <button 
+            mat-icon-button 
+            [routerLink]="['/edicao', usuario().id]"
+            [state]="{usuario:usuario()}"
+            aria-label="Botão de editar usuário">
+            <mat-icon>edit</mat-icon>
+        </button> -->
         <app-botao-padronizado 
         (click) = "excluir()" [rota]="[]"
         tipoDeBotao="secundario" texto="Excluir" icone="delete"/>

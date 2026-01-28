@@ -1,5 +1,5 @@
 .barra-pesquisa-nome {
-    width: 100%;           /* Ele tenta crescer... */
+    width: 100%;           /* Ele vai expandir */
     max-width: 600px;      /* ...mas para aqui para não ficar gigante */
     padding: 12px;
     border: 1px solid #757575;

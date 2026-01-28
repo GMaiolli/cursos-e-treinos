@@ -23,7 +23,7 @@ export class EditarUsuarioComponent implements OnInit{
     private usuarioService: UsuarioService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private formularioService: FormularioService
+    private formularioService: FormularioService,
     // private cdr: ChangeDetectorRef
   ){
     const navegacao = this.router.getCurrentNavigation();

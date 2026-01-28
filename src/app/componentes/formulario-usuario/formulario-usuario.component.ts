@@ -1,13 +1,10 @@
-import { ChangeDetectorRef, Component, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, input, OnInit, output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Usuario } from '../usuario/usuario';
-import { nanoid } from 'nanoid';
 import { CampoTextoComponent } from "../campo-texto/campo-texto.component";
-import { UsuarioService } from '../../services/usuario/usuario.service';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
 import { FormularioService } from '../../services/formulario/formulario.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -17,7 +14,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   templateUrl: './formulario-usuario.component.html',
   styleUrl: './formulario-usuario.component.css',
 })
-export class FormularioUsuarioComponent implements OnInit, OnChanges {
+export class FormularioUsuarioComponent implements OnInit {
   submitForm = output<Usuario>()
   usuario = input<Usuario | null>(null)
 
@@ -25,8 +22,6 @@ export class FormularioUsuarioComponent implements OnInit, OnChanges {
 
   constructor(
     private formBuilder: FormBuilder,
-    private usuarioService: UsuarioService,
-    private router: Router,
     private formularioService: FormularioService
   ){}
 
@@ -34,7 +29,7 @@ export class FormularioUsuarioComponent implements OnInit, OnChanges {
     this.inicializarUsuarioFormulario();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  // ngOnChanges(changes: SimpleChanges): void {
     // if (changes['usuario'] && this.usuario()) {
     //   this.usuarioFormulario.patchValue({
     //     nome: this.usuario()!.nome,
@@ -42,7 +37,7 @@ export class FormularioUsuarioComponent implements OnInit, OnChanges {
     //   });
     //   // this.cdr.detectChanges();
     // }
-  }
+  // }
 
   inicializarUsuarioFormulario() {
     if(this.usuario()){
@@ -60,7 +55,6 @@ export class FormularioUsuarioComponent implements OnInit, OnChanges {
 
   };
 
-  
   emitirUsuarioAtualizado(){
     const formValue = this.usuarioFormulario.value;
     const existing = this.usuario();
@@ -75,6 +69,5 @@ export class FormularioUsuarioComponent implements OnInit, OnChanges {
 
   retornarInicio(){
     this.formularioService.retornarInicio();
-
   }
 }

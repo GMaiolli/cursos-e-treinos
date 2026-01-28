@@ -46,25 +46,46 @@ export class TelaInicialComponent implements OnInit{
     this.formularioService.navegarNovoUsuario()
   }
 
-  buscarUsuario(nome: string){
-    if(!nome.trim()) {
-        this.ngOnInit();  
-        return ; //vai buscar nada se estiver vazio
+  //logica anterior, enviando como parâmetro o nome na requisição HTTP
+
+  // buscarUsuario(nome: string){
+  //   if(!nome.trim()) {
+  //       this.ngOnInit();  
+  //       return ; //vai buscar nada se estiver vazio
+  //   }
+
+  //   const params = new HttpParams().set('nome', nome)
+
+  //   this.usuarioService.obterUsuariosPorNome(params).subscribe({
+  //     next: (usuariosFiltrados) => {
+  //       this.listaUsuarios.set(usuariosFiltrados);
+  //     }
+  //   })
+  // }
+
+  buscarUsuario(stringDePesquisa: string) {
+    const termo = stringDePesquisa.trim().toLowerCase();
+
+    if (!termo) {
+      this.ngOnInit(); // Recarrega a lista completa
+      return;
     }
 
-    const params = new HttpParams().set('nome', nome)
-
-    this.usuarioService.obterUsuariosPorNome(params).subscribe({
-      next: (usuariosFiltrados) => {
-        this.listaUsuarios.set(usuariosFiltrados);
+    this.usuarioService.obterUsuarios().subscribe({ //não consegui fazer a lógica com a requisição http, ficou aqui mesmo.
+                                                    //mas idealmente devia ser passada para o service, eu imagino!
+      next: (todosUsuarios) => {
+        const filtrados = todosUsuarios.filter(u => 
+          u.nome.toLowerCase().includes(termo) || 
+          u.email.toLowerCase().includes(termo)
+        );
+        this.listaUsuarios.set(filtrados);
       }
-    })
+    });
   }
 
-  removerUsuarioDaLista(usuarioId: string){
-    this.listaUsuarios.update(lista => lista.filter(u => u.id !== usuarioId))
 
-    // this.listaUsuarios = this.listaUsuarios.filter(usuario => usuario.id !== usuarioId);
+  removerUsuarioDaLista(usuarioId: string){ //sabe que tem que dar update na lista dele, porque já foi retirado do backend
+    this.listaUsuarios.update(lista => lista.filter(u => u.id !== usuarioId))
   }
 
   //esse trecho abaixo não está sendo mais usado aqui
@@ -79,8 +100,5 @@ export class TelaInicialComponent implements OnInit{
   //       // this.cdr.detectChanges();
   //     }
   //   }
-  // ngOnChanges(changes:SimpleChanges){
-  //   if
-  // }
 
 }

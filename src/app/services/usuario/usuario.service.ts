@@ -19,9 +19,14 @@ export class UsuarioService {
     return this.httpClient.get<Usuario>(`${this.API_URL}/${id}`)
   }
 
-  obterUsuariosPorNome(params:HttpParams): Observable<Usuario[]>{
-    return this.httpClient.get<Usuario[]>(`${this.API_URL}/`, { params })
-  }
+  //verificacao do campo de pesquisa está sendo feita
+  // obterUsuariosPorNome(params:HttpParams): Observable<Usuario[]>{
+  //   return this.httpClient.get<Usuario[]>(`${this.API_URL}/`, { params })
+  // }
+
+  // obterUsuariosPorNomeOuEmail(params:HttpParams): Observable<Usuario[]>{
+  //   return this.httpClient.get<Usuario[]>(`${this.API_URL}/`, { params })
+  // }
 
   adicionarUsuario(novoUsuario: Usuario): Observable<Usuario> {
     return this.httpClient.post<Usuario>(this.API_URL, novoUsuario)
