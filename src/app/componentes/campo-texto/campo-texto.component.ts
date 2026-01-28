@@ -1,0 +1,59 @@
+import {  CommonModule } from '@angular/common';
+import { Component, input, ChangeDetectorRef, forwardRef, } from '@angular/core';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-campo-texto',
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule, FormsModule],
+  templateUrl: './campo-texto.component.html',
+  styleUrl: './campo-texto.component.css',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => CampoTextoComponent),
+      multi: true
+    }
+  ]
+})
+export class CampoTextoComponent implements ControlValueAccessor{
+  label = input<string>();
+  id = input<string>();
+  placeholder = input<string>();
+  tipo = input('text');
+
+  private innerValue: any;
+
+  // constructor(private cdr: ChangeDetectorRef) {}
+
+  get value() {
+    return this.innerValue;
+  }
+
+  set value(v: any) {
+    if(v !== this.innerValue) {
+      this.innerValue = v;
+      this.onChange(v);
+    }
+  }
+
+  onChange: any = () => {};
+  onTouched: any = () => {};
+
+  writeValue(v: string): void {
+    this.innerValue = v;
+    // this.cdr.markForCheck();
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  onInput(event: any) {
+    this.value = event.target.value;
+  }
+}

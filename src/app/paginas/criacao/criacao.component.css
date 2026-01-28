@@ -1,0 +1,29 @@
+.informacoes-iniciais-cadastro{
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+
+}
+
+.secao-cadastro{
+ 
+    border: 1px solid #999;
+    border-radius: 8px;
+    background-color: #f9f9f9b0;
+    
+    padding: 40px;
+
+    max-width: 900px;
+    width: 90%;
+    margin: 40px auto; /* O 'auto' nas laterais centraliza o bloco horizontalmente */
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.botao-voltar{
+    display: block;
+    margin-top: 30px;  /* Empurra para baixo */
+    margin-left: 10%;
+}

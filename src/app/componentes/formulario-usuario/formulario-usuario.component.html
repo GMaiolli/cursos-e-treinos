@@ -1,0 +1,28 @@
+<div class="tela-criacao">
+    <!-- <h1 class="texto-inicial-formulario">Criar novo Usuário</h1> -->
+    <section class="formulario">
+        <form [formGroup]="usuarioFormulario" (ngSubmit)="emitirUsuarioAtualizado()">
+            <!-- <h2 class="titulo">Dados do Usuário</h2> -->
+            <div class="campos">
+                <div class="secao-nome">
+                    <app-campo-texto label="Nome" id="nome" placeholder="Digite o nome do usuário" formControlName="nome"/>
+                    <!-- <div *ngIf="usuarioFormulario.get('nome')?.invalid && usuarioFormulario.get('nome')?.touched" class="cadatro-form__error">Nome completo é obrigatório</div>-->
+                     @if (usuarioFormulario.get('nome')?.invalid && usuarioFormulario.get('nome')?.touched) {
+                        <div class="cadatro-form__error">*Nome completo é obrigatório</div>
+                    }
+                </div>
+                <div class="secao-email">
+                    <app-campo-texto label="Email" id="email" placeholder="Digite o email do usuário" formControlName="email"/>
+                    @if (usuarioFormulario.get('email')?.invalid && usuarioFormulario.get('email')?.touched) {
+                        <div class="cadatro-form__error">*Email inválido</div>
+                    }
+                </div>
+            </div>
+            <div class="container-acoes">
+                <!-- <button class="botao-concluir">Concluir</button>  -->
+                <button (click) = "retornarInicio()"class="botao-cancelar" matTooltip="Retornar ao menu" matButton="filled">Cancelar</button>
+                <button class="botao-concluir" matButton="filled" [disabled]="usuarioFormulario.invalid">Concluir</button>
+            </div>
+        </form>
+    </section>
+</div>
