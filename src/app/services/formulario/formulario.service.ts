@@ -11,4 +11,8 @@ export class FormularioService {
   retornarInicio(){
     this.router.navigate(['/inicio'])
   }
+
+  navegarNovoUsuario(){
+    this.router.navigate(['/criacao'])
+  }
 }

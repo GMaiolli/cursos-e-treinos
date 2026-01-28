@@ -5,7 +5,7 @@
     margin-bottom: 10px;
     width: 100%;
     margin-top: 20px; /* por que se eu aumento isso mais ele começa a andar na diagonal? */
-    /* background-color: red; */
+    
 }
 
 .wrapper-posicionamento {
@@ -18,9 +18,10 @@
 }
 
 .botao-adicionar-lateral {
-    position: absolute;
-    right: 120px;
-    top: 0
+    position: absolute; 
+    right: 210px;
+    top: 0;
+    
 }
 
 .container-busca {
@@ -34,3 +35,4 @@
     width: 100%;
     max-width: 600px; /* Largura ideal para um campo de busca */
 }
+

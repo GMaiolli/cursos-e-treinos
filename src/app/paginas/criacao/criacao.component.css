@@ -23,11 +23,6 @@
 }
 
 .botao-voltar{
-    /* max-width: 900px; */
-    /* margin: 20px auto;
-    display: flex;
-    justify-content: flex-start;
-    padding: 0 40px; */
     display: block;
     margin-top: 30px;  /* Empurra para baixo */
     margin-left: 10%;

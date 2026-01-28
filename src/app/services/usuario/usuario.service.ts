@@ -23,7 +23,6 @@ export class UsuarioService {
     return this.httpClient.get<Usuario[]>(`${this.API_URL}/`, { params })
   }
 
-
   adicionarUsuario(novoUsuario: Usuario): Observable<Usuario> {
     return this.httpClient.post<Usuario>(this.API_URL, novoUsuario)
   }

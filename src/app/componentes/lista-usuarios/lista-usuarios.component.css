@@ -1,5 +1,4 @@
 .container-principal-usuarios {
-    /* background-color: blueviolet; */
     display: flex; /* transforma em flexbox, bom para alinhar */
     flex-direction: column; /*informa que os filhos vão ser empilhados, verticalmente */
     align-items: center; /* alinhar todos os filhos, verticalmente*/
@@ -7,14 +6,10 @@
 }
 
 .lista-usuarios-wrapper {
-    background-color: rgb(196, 192, 192);
+    background-color: rgba(217, 217, 217, 0.733);
     max-width: 1000px; /* limitar a largura, bom em monitores grandes*/
-    /* text-align: center; */
     border-radius: 8px; /* arredondar cantos da caixa*/
     overflow: hidden; /* se algo vazar das bordas, é cortado.*/
-    /* align-items: center; */
-    /* width: 50%; */
-    /* display: flex; */
     border: 1px solid #292222;
     width: 100%;
     margin-top: 10px;

@@ -1,5 +1,5 @@
 .informacoes-usuario {
-    display: flex; /* flexbox dnv, mas agora olocaremos lado a lado as info*/
+    display: flex; /* flexbox dnv, mas agora colocaremos lado a lado as info*/
     padding: 16px; /* cria um "respiro interno", texto não encostando nas bordas */
     align-items: center;
 }

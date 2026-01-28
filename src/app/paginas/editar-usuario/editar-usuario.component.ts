@@ -32,8 +32,7 @@ export class EditarUsuarioComponent implements OnInit{
   }
 
   ngOnInit(){ //isso aqui acredito que esteja redundante, pois estou enviando por state através do botão, ver melhor
-              //se descomentar não acha o erro 404 aqui
-
+              //maas, se descomentar não acha o erro 404 aqui
     const id = this.activatedRoute.snapshot.paramMap.get("id");
 
     if(id){
