@@ -1,4 +1,19 @@
 <app-cabecalho></app-cabecalho>
-<app-barra-pesquisa />
-<app-lista-usuarios />
-<app-botao-padronizado [rota]="['criacao']" />
+<main class="container-principal-usuarios">
+    <div class="secao-pesquisa">
+        <app-barra-pesquisa #barra (pesquisar)="buscarUsuario($event)"/>
+        <button (click)="barra.aoSubmeter()" class="botao-lupa"><mat-icon>search</mat-icon></button>
+    </div>
+    <div class="wrapper-posicionamento">
+        <div class="cabecalho-acoes">
+            <button matFab extended (click)= "navegarNovoUsuario()" color="primary" class="botao-adicionar-lateral">
+                <mat-icon>add</mat-icon>
+                Novo Usuário
+            </button>
+
+        </div>
+        <app-lista-usuarios [listaUsuarios]="listaUsuarios()" (usuarioExcluido)="removerUsuarioDaLista($event)"/>
+        <!-- <app-botao-padronizado class="botao-adicionar-lateral" icone="add" rota="/criacao" tipo="submit" texto="Novo Usuário" /> -->
+    </div>
+
+</main>

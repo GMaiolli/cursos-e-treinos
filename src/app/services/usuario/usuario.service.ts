@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from '../../componentes/usuario/usuario';
@@ -19,6 +19,9 @@ export class UsuarioService {
     return this.httpClient.get<Usuario>(`${this.API_URL}/${id}`)
   }
 
+  obterUsuariosPorNome(params:HttpParams): Observable<Usuario[]>{
+    return this.httpClient.get<Usuario[]>(`${this.API_URL}/`, { params })
+  }
 
   adicionarUsuario(novoUsuario: Usuario): Observable<Usuario> {
     return this.httpClient.post<Usuario>(this.API_URL, novoUsuario)
@@ -28,5 +31,7 @@ export class UsuarioService {
     return this.httpClient.put<Usuario>(`${this.API_URL}/${usuario.id}`, usuario)
   }
 
-
+  excluirUsuario(id:string): Observable<void>{
+    return this.httpClient.delete<void>(`${this.API_URL}/${id}`)
+  }
 }

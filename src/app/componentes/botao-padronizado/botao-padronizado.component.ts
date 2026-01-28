@@ -1,9 +1,12 @@
+
 import { Component, input } from '@angular/core';
 import { RouterLink } from "@angular/router";
+import { MatIconModule } from '@angular/material/icon';
+import { Usuario } from '../usuario/usuario';
 
 @Component({
   selector: 'app-botao-padronizado',
-  imports: [RouterLink],
+  imports: [RouterLink, MatIconModule],
   templateUrl: './botao-padronizado.component.html',
   styleUrl: './botao-padronizado.component.css',
 })
@@ -12,6 +15,7 @@ export class BotaoPadronizadoComponent {
   icone = input<string>();
   rota = input<string|string[]>();
   tipo = input<string>('button');
+  usuario = input<Usuario | null>();
   tipoDeBotao = input<'primario' | 'secundario'>('primario');
 
 

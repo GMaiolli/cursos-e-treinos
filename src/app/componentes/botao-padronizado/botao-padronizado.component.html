@@ -1,5 +1,11 @@
-<button [routerLink]="rota()" [type]="tipo()">
-    <i class="material-icons">{{icone()}}</i>
+<button [routerLink]="rota() ? rota(): null" [state] = "{usuario:usuario()}"[type]="tipo()" [class]="classeCss">
+    <!-- <i class="material-icons">{{icone()}}</i> -->
+    <!-- {{texto()}} -->
+    @if (icone()) {
+        <mat-icon> {{icone()}}</mat-icon>
+
+    }
     {{texto()}}
+    
 
 </button>

@@ -4,11 +4,22 @@ import { Usuario } from '../../componentes/usuario/usuario';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CabecalhoComponent } from "../../componentes/cabecalho/cabecalho.component";
+<<<<<<< HEAD
 import { BotaoVoltarComponent } from '../../componentes/botao-voltar/botao-voltar.component';
 
 @Component({
   selector: 'app-editar-usuario',
   imports: [FormularioUsuarioComponent, CabecalhoComponent, BotaoVoltarComponent],
+=======
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { FormularioService } from '../../services/formulario/formulario.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+@Component({
+  selector: 'app-editar-usuario',
+  imports: [FormularioUsuarioComponent, CabecalhoComponent, MatButtonModule, MatIconModule, MatTooltipModule],
+>>>>>>> feature/tratamento-erros-simples
   templateUrl: './editar-usuario.component.html',
   styleUrl: './editar-usuario.component.css',
 })
@@ -19,16 +30,35 @@ export class EditarUsuarioComponent implements OnInit{
   constructor(
     private usuarioService: UsuarioService,
     private activatedRoute: ActivatedRoute,
+<<<<<<< HEAD
     private router: Router
   ){}
 
   ngOnInit(){
+=======
+    private router: Router,
+    private formularioService: FormularioService
+    // private cdr: ChangeDetectorRef
+  ){
+    const navegacao = this.router.getCurrentNavigation();
+    this.usuario = navegacao?.extras.state?.['usuario'];
+    console.log(this.usuario)
+  }
+
+  ngOnInit(){ //isso aqui acredito que esteja redundante, pois estou enviando por state através do botão, ver melhor
+              //maas, se descomentar não acha o erro 404 aqui
+>>>>>>> feature/tratamento-erros-simples
     const id = this.activatedRoute.snapshot.paramMap.get("id");
 
     if(id){
       this.usuarioService.obterUsuarioPorId(id).subscribe((usuario) =>
       {
+<<<<<<< HEAD
         this.usuario = usuario
+=======
+        this.usuario = usuario;
+        // this.cdr.detectChanges();
+>>>>>>> feature/tratamento-erros-simples
       })
     }
   }
@@ -38,4 +68,12 @@ export class EditarUsuarioComponent implements OnInit{
       this.router.navigate(['/inicio'])
     })
   }
+<<<<<<< HEAD
 }
+=======
+
+  retornarInicio(){
+    this.formularioService.retornarInicio()
+  }
+}
+>>>>>>> feature/tratamento-erros-simples
