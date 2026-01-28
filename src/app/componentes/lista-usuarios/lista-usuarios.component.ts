@@ -19,6 +19,8 @@ export class ListaUsuariosComponent{
 
   }
 
+  //alterado para a lista de usuários ser recebida do pai
+
   // ngOnInit(){
   //   this.usuarioService.obterUsuarios().subscribe(res => {
   //     this.listaUsuarios = res;
@@ -29,12 +31,7 @@ export class ListaUsuariosComponent{
 
   removerUsuario(id:string){
     this.usuarioService.excluirUsuario(id).subscribe(() => {
-      // this.deletarUsuarioDaLista(id)
-      this.usuarioExcluido.emit(id)
+      this.usuarioExcluido.emit(id) //envia para o pai excluir da lista, aqui ele teoricamente só "recebe a lista", mas verificar o que seria melhor.
     })
   }
-
-  // deletarUsuarioDaLista(usuarioId: string){
-  //   this.listaUsuarios = this.listaUsuarios.filter(usuario => usuario.id !== usuarioId);
-  // }
 }

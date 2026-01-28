@@ -8,7 +8,7 @@ export class Usuario {
         public email: string,
         id?: string
     ){
-        this.id = id || nanoid();
+        this.id = id || nanoid(); //está sendo feito assim devido ao formulário poder criar um novo ou só alterar.
     }
 
 }

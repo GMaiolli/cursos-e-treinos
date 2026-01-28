@@ -9,7 +9,16 @@ export const routes: Routes = [
         redirectTo: '/inicio',
         pathMatch: 'full'
     },
-    {path: "inicio", component: TelaInicialComponent},
-    {path: "criacao", component: CriacaoComponent },
-    {path: "edicao/:id", component: EditarUsuarioComponent }
+    {
+        path: "inicio", 
+        component: TelaInicialComponent
+    },
+    {
+        path: "criacao", 
+        component: CriacaoComponent 
+    },
+    {
+        path: "edicao/:id", 
+        component: EditarUsuarioComponent 
+    }
 ];
