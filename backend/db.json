@@ -1,29 +1,14 @@
 {
   "usuarios": [
     {
-      "id": "47FFGYud72d8947grftfgas",
-      "nome": "Mateus",
-      "email": "mateus.track@db1.com.br"
-    },
-    {
       "id": "RlE8huVEmh7Zb3Aw2-6ge",
       "nome": "Joao",
-      "email": "joao123@gmail.com"
-    },
-    {
-      "id": "6vy0KxS89HXRS6L-r1wR3",
-      "nome": "joaomantovani",
       "email": "joao123@gmail.com"
     },
     {
       "id": "oppqGBVBEx9XuG4OWXtXU",
       "nome": "Mariana",
       "email": "mariana@db1.com"
-    },
-    {
-      "id": "U9gZ9ONYw64jUseacvrL5",
-      "nome": "NovoUsuario",
-      "email": "novoUsuario@gmail"
     }
   ]
 }
