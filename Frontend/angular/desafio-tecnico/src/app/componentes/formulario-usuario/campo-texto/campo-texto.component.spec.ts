@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CampoTextoComponent } from './campo-texto.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 describe('CampoTextoComponent', () => {
   let component: CampoTextoComponent;
@@ -8,7 +10,7 @@ describe('CampoTextoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CampoTextoComponent]
+      imports: [CampoTextoComponent, ReactiveFormsModule, CommonModule, FormsModule]
     })
     .compileComponents();
 

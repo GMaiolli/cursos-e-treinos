@@ -56,8 +56,13 @@ export class FormularioUsuarioComponent implements OnInit {
   };
 
   emitirUsuarioAtualizado(){
+    if(this.usuarioFormulario.invalid){
+      return; //cancelar!
+    }
+    
     const formValue = this.usuarioFormulario.value;
     const existing = this.usuario();
+
     if (existing) {
       const updated = new Usuario(formValue.nome, formValue.email, existing.id);
       this.submitForm.emit(updated);

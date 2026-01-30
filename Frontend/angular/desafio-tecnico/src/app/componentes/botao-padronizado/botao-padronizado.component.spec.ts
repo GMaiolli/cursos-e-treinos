@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BotaoPadronizadoComponent } from './botao-padronizado.component';
+import { provideRouter, RouterLink } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('BotaoPadronizadoComponent', () => {
   let component: BotaoPadronizadoComponent;
@@ -8,7 +10,12 @@ describe('BotaoPadronizadoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BotaoPadronizadoComponent]
+      imports: [
+        BotaoPadronizadoComponent,
+        RouterLink,
+        MatIconModule
+      ],
+      providers: [provideRouter([])]
     })
     .compileComponents();
 

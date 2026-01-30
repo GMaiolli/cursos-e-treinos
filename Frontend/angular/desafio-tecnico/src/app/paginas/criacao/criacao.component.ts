@@ -25,7 +25,7 @@ export class CriacaoComponent {
 
   criarUsuario(novoUsuario: Usuario){
     this.usuarioService.adicionarUsuario(novoUsuario).subscribe(() => {
-      this.router.navigate(['inicio'])
+      this.router.navigate(['/inicio'])
     })
   }
 

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, input, OnInit, output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { Usuario } from '../usuario/usuario';
 import { UsuarioComponent } from "../usuario/usuario.component";
@@ -15,7 +15,7 @@ export class ListaUsuariosComponent{
 
   usuarioExcluido = output<string>();
 
-  constructor(private usuarioService: UsuarioService, private cdr: ChangeDetectorRef){
+  constructor(private usuarioService: UsuarioService){
 
   }
 
