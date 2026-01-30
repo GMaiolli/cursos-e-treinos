@@ -20,6 +20,7 @@ export class UsuarioService {
   }
 
   //verificacao do campo de pesquisa está sendo feita
+  
   // obterUsuariosPorNome(params:HttpParams): Observable<Usuario[]>{
   //   return this.httpClient.get<Usuario[]>(`${this.API_URL}/`, { params })
   // }

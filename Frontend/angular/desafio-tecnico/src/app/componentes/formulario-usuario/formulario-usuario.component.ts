@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, input, OnInit, output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Usuario } from '../usuario/usuario';
-import { CampoTextoComponent } from "../campo-texto/campo-texto.component";
+import { CampoTextoComponent } from "./campo-texto/campo-texto.component";
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -56,8 +56,13 @@ export class FormularioUsuarioComponent implements OnInit {
   };
 
   emitirUsuarioAtualizado(){
+    if(this.usuarioFormulario.invalid){
+      return; //cancelar!
+    }
+    
     const formValue = this.usuarioFormulario.value;
     const existing = this.usuario();
+
     if (existing) {
       const updated = new Usuario(formValue.nome, formValue.email, existing.id);
       this.submitForm.emit(updated);

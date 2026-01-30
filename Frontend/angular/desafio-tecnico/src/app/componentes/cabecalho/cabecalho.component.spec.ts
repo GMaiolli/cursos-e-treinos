@@ -20,4 +20,12 @@ describe('CabecalhoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('deveria manter o cabecalho correto', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.texto-inicial').textContent).toEqual('Sistema de Gerenciamento de Usuários')
+
+
+  })
 });
