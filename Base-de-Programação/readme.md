@@ -17,10 +17,10 @@ Repositório dedicado aos estudos da trilha de **Base de Programação**, com fo
 * [x] Git e GitHub: dominando controle de versão de código
 
 ### 3. Infraestrutura e Ambiente 📅
-* [ ] Terminal: aprenda comandos para executar tarefas
-* [ ] Windows Prompt: utilizando o CMD
-* [ ] Artigo - WSL: executando Linux no Windows
-* [ ] HTTP: entendendo a web por baixo dos panos
+* [x] Terminal: aprenda comandos para executar tarefas
+* [x] Windows Prompt: utilizando o CMD
+* [x] Artigo - WSL: executando Linux no Windows
+* [x] HTTP: entendendo a web por baixo dos panos
 * [ ] VSCode: aprendendo dicas e truques
 * [ ] Docker: criando e gerenciando containers
 
