@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Treino Docker - Gabriel</title>
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #121212; color: white; }
+        button { padding: 15px 30px; font-size: 18px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 5px; }
+        #resultado { margin-top: 20px; padding: 10px; border: 1px solid #333; }
+    </style>
+</head>
+<body>
+    <h1>Simulação de API com Docker</h1>
+    <button onclick="chamarAPI()">Chamar Backend</button>
+    <div id="resultado">Aguardando clique...</div>
+
+    <script>
+        async function chamarAPI() {
+            try {
+                // localhost porque o seu navegador (Windows) acessa o container mapeado
+                const resp = await fetch('http://localhost:5000/api/dados');
+                const data = await resp.json();
+                document.getElementById('resultado').innerText = JSON.stringify(data, null, 2);
+            } catch (err) {
+                document.getElementById('resultado').innerText = "Erro ao conectar!";
+            }
+        }
+    </script>
+</body>
+</html>
