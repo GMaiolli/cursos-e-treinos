@@ -13,8 +13,8 @@ Repositório dedicado aos estudos da trilha de **Base de Programação**, com fo
 * [x] Lógica de programação: praticando com desafios
 
 ### 2. Orientação a Objetos
-* [ ] JavaScript: programação Orientada a Objetos
-* [ ] Object Calisthenics: exercitando a Orientação a Objetos
+* [x] JavaScript: programação Orientada a Objetos
+* [x] Object Calisthenics: exercitando a Orientação a Objetos
 
 ### 3. Controle de Versão ⏳
 * [x] Git e GitHub: compartilhando e colaborando em projetos
@@ -38,6 +38,6 @@ Repositório dedicado aos estudos da trilha de **Base de Programação**, com fo
 * [ ] GitHub Copilot e ChatGPT: impulsionando seu desenvolvimento com IA
 
 ---
-> **Status Atual:** 3/6 Módulos Concluídos
+> **Status Atual:** 4/6 Módulos Concluídos
 ---
 *Organizado por: Gabriel Maiolli de Oliveira*
