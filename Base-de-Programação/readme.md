@@ -29,15 +29,15 @@ Repositório dedicado aos estudos da trilha de **Base de Programação**, com fo
 * [x] Docker: criando e gerenciando containers
 
 ### 5. Banco de Dados 📅
-* [ ] Modelagem de banco de dados relacional: entendendo SQL
-* [ ] MySQL: conhecendo a ferramenta
-* [ ] MongoDB: conhecendo um banco de dados NoSQL
+* [x] Modelagem de banco de dados relacional: entendendo SQL
+* [x] MySQL: conhecendo a ferramenta
+* [x] MongoDB: conhecendo um banco de dados NoSQL
 
 ### 6. IA
-* [ ] Engenharia de Prompt: criando prompts eficazes para IA Generativa
-* [ ] GitHub Copilot e ChatGPT: impulsionando seu desenvolvimento com IA
+* [x] Engenharia de Prompt: criando prompts eficazes para IA Generativa
+* [x] GitHub Copilot e ChatGPT: impulsionando seu desenvolvimento com IA
 
 ---
-> **Status Atual:** 4/6 Módulos Concluídos
+> **Status Atual:** 6/6 Módulos Concluídos
 ---
 *Organizado por: Gabriel Maiolli de Oliveira*
