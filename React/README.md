@@ -9,7 +9,7 @@ Repositório dedicado aos estudos da trilha de **Base de Programação**, com fo
 ### 1. Lógica e Algoritmos ✅
 * [x] Lógica de programação: mergulhe em programação com JavaScript
 * [x] Lógica de programação: explore funções e listas
-* [ ] JavaScript: entendendo promises e async/await
+* [x] JavaScript: entendendo promises e async/await
 * [x] Lógica de programação: praticando com desafios
 
 ### 2. Html e CSS - Base essencial do Front-end
@@ -48,6 +48,6 @@ Repositório dedicado aos estudos da trilha de **Base de Programação**, com fo
 * [ ] Como criar biblioteca externa para o React Native
 
 ---
-> **Status Atual:** 0/5 Módulos Concluídos
+> **Status Atual:** 1/5 Módulos Concluídos
 ---
 *Organizado por: Gabriel Maiolli de Oliveira*

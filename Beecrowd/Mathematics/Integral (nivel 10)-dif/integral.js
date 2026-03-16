@@ -1,78 +1,112 @@
 var input = require('fs').readFileSync('/dev/stdin', 'utf8');
-var lines = input.split('\n');
+var lines = input.trim().split(/\r?\n/);
 
-let lineIdx = 0;
-
+var lineIdx = 0;
 while (lineIdx < lines.length) {
-    let firstLine = lines[lineIdx++];
-    if (!firstLine || firstLine.trim() === "") break;
+    let line = lines[lineIdx++];
+    if (!line || line.trim() === '') continue;
 
-    let [N, M, Y] = firstLine.split(/\s+/).map(Number);
-    let pontosS = [];
+    let parts = line.trim().split(/\s+/);
+    if (parts.length < 3) break;
 
+    let N = parseInt(parts[0], 10);
+    let M = parseInt(parts[1], 10);
+    let Y = parseInt(parts[2], 10);
+
+    let S = [];
     for (let i = 0; i < M; i++) {
-        let [x, f] = lines[lineIdx++].split(/\s+/).map(Number);
-        pontosS.push({ x, f });
+        let sLine = lines[lineIdx++];
+        let sParts = sLine.trim().split(/\s+/);
+        S.push({ x: parseInt(sParts[0], 10), f: parseInt(sParts[1], 10) });
     }
 
-    pontosS.sort((a, b) => a.x - b.x);
+    S.sort((a, b) => a.x - b.x);
 
-    let f_min = new Array(N + 1);
-    let f_max = new Array(N + 1);
-
-    for (let i = 0; i < pontosS.length - 1; i++) {
-        let pA = pontosS[i];
-        let pB = pontosS[i + 1];
-        
-        f_min[pA.x] = pA.f;
-        f_max[pA.x] = pA.f;
-        f_min[pB.x] = pB.f;
-        f_max[pB.x] = pB.f;
-
-        let menor = Math.min(pA.f, pB.f);
-        let maior = Math.max(pA.f, pB.f);
-
-        for (let j = pA.x + 1; j < pB.x; j++) {
-            f_min[j] = menor;
-            f_max[j] = maior;
-        }
+    let R_target = 2 * Y - S[0].f - S[M - 1].f;
+    if (R_target < 0 || R_target % 2 !== 0) {
+        console.log('N');
+        continue;
     }
 
-    let somaMin2Y = BigInt(f_min[0]) + BigInt(f_min[N]);
-    let somaMax2Y = BigInt(f_max[0]) + BigInt(f_max[N]);
-    for (let i = 1; i < N; i++) {
-        somaMin2Y += 2n * BigInt(f_min[i]);
-        somaMax2Y += 2n * BigInt(f_max[i]);
+    let requiredInternalSum = R_target / 2;
+    let fixedInternalSum = 0;
+    for (let i = 1; i < M - 1; i++) {
+        fixedInternalSum += S[i].f;
     }
 
-    let alvo2Y = BigInt(Y) * 2n;
+    let remainingNeeded = requiredInternalSum - fixedInternalSum;
 
-    if (alvo2Y < somaMin2Y || alvo2Y > somaMax2Y || (alvo2Y - somaMin2Y) % 2n !== 0n) {
-        console.log("N");
-    } else {
-        let falta = (alvo2Y - somaMin2Y) / 2n;
-        let f_res = [...f_min];
+    let L_arr = new Int32Array(M - 1);
+    let Min_arr = new Float64Array(M - 1);
+    let Max_arr = new Float64Array(M - 1);
+    let TotalMin = 0;
+    let TotalMax = 0;
 
-        for (let i = N - 1; i >= 1; i--) {
-            let diffMax = BigInt(f_max[i] - f_res[i]);
-            let ajuste = falta < diffMax ? falta : diffMax;
-            f_res[i] += Number(ajuste);
-            falta -= ajuste;
-            if (falta === 0n) break;
-        }
+    for (let j = 0; j < M - 1; j++) {
+        let L = S[j + 1].x - S[j].x - 1;
+        let min_val = Math.min(S[j].f, S[j + 1].f);
+        let max_val = Math.max(S[j].f, S[j + 1].f);
+        let min_sum = L * min_val;
+        let max_sum = L * max_val;
 
-        if (falta === 0n) {
-            let out = "S";
-            let sIdx = 0;
-            let sX = pontosS.map(p => p.x);
-            for (let i = 0; i <= N; i++) {
-                if (!sX.includes(i)) {
-                    out += " " + f_res[i];
-                }
+        L_arr[j] = L;
+        Min_arr[j] = min_sum;
+        Max_arr[j] = max_sum;
+        TotalMin += min_sum;
+        TotalMax += max_sum;
+    }
+
+    if (remainingNeeded < TotalMin || remainingNeeded > TotalMax) {
+        console.log('N');
+        continue;
+    }
+
+    let suffixMax = new Float64Array(M - 1);
+    let cur = 0;
+    for (let j = M - 2; j >= 0; j--) {
+        suffixMax[j] = cur;
+        cur += Max_arr[j];
+    }
+
+    let ans = new Int32Array(N + 1);
+    let ansIdx = 0;
+
+    for (let j = 0; j < M - 1; j++) {
+        let L = L_arr[j];
+        if (L === 0) continue;
+
+        let S_i = Math.max(Min_arr[j], remainingNeeded - suffixMax[j]);
+        S_i = Math.min(S_i, Max_arr[j]);
+        remainingNeeded -= S_i;
+
+        let A = S[j].f;
+        let B = S[j + 1].f;
+
+        if (A <= B) {
+            let prev = A;
+            let rem_Si = S_i;
+            for (let k = 1; k <= L; k++) {
+                let remL = L - k;
+                let max_after = remL * B;
+                let v = Math.max(prev, rem_Si - max_after);
+                ans[ansIdx++] = v;
+                rem_Si -= v;
+                prev = v;
             }
-            console.log(out);
         } else {
-            console.log("N");
+            let rem_Si = S_i;
+            for (let k = 1; k <= L; k++) {
+                let remL = L - k + 1;
+                let v = Math.floor((rem_Si + remL - 1) / remL);
+                ans[ansIdx++] = v;
+                rem_Si -= v;
+            }
         }
+    }
+
+    if (ansIdx > 0) {
+        console.log('S ' + ans.subarray(0, ansIdx).join(' '));
+    } else {
+        console.log('S');
     }
 }
