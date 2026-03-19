@@ -1,0 +1,1 @@
+fiz uma lógica mais complexa para futuramente fazer um frontend de um cubo magico e vou usar esse exercicio para fazer ele!

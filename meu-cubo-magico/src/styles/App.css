@@ -1,0 +1,134 @@
+/* Reset básico para ocupar a tela toda */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body, #root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #111; /* Fundo escuro para destacar o 3D */
+}
+
+.app-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Camada da Interface (Botões e Textos) */
+.ui-layer {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10; /* Garante que os botões fiquem na frente do 3D */
+  pointer-events: none; /* Permite clicar no cubo através da div, mas... */
+}
+
+.ui-layer h1 {
+  color: #fff;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.ui-layer p {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+/* Container dos botões - reativa o clique aqui */
+.interface-container {
+  pointer-events: auto; 
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Estilização dos Botões */
+button {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Botão de Embaralhar */
+.embaralhar-btn {
+  background: #2ecc71;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.embaralhar-btn:hover {
+  background: #27ae60;
+  color: white;
+}
+
+/* Botão de Reset com destaque */
+.reset-btn {
+  background: #e74c3c;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.reset-btn:hover {
+  background: #c0392b;
+  color: white;
+}
+
+/* Camada do Canvas (Ocupa tudo) */
+.canvas-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Jumpscare */
+.jumpscare-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jumpscare-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
