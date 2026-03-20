@@ -4,40 +4,47 @@ let caminho = [
   [0, 1, 0], 
   [1, 1, 0],
   [1, 0, 1],
-  [0, 1, 1]  
+  [0, 1, 1],
+  [1, 0, 1]  
 ];
 
-let colunaAtual = 1; 
-let caminhofeito = [colunaAtual];
+let resultado = [];
 
-function caminhocerto() {
-    for (let j = 1; j < caminho.length; j++) {
-        let proximaLinha = caminho[j + 1]
+function encontrarCaminho() {
 
-        if (caminho[j][colunaAtual] === 0) {
-            caminhofeito.push(colunaAtual);
-        } 
-        else if (colunaAtual > 0 && caminho[j][colunaAtual - 1] === 0){
-            if (!proximaLinha || proximaLinha[colunaAtual - 1] === 0 || (colunaAtual > 1 && proximaLinha[colunaAtual - 2] === 0)) {
-                colunaAtual--;
-                caminhofeito.push(colunaAtual);
-            }
+    function resolver(linha, coluna, trajeto) {
+        if (linha === caminho.length) {
+            resultado = [...trajeto];
+            return true;
         }
-        else if (colunaAtual < caminho[j].length - 1 && caminho[j][colunaAtual + 1] === 0 ) {
-            if (!proximaLinha || proximaLinha[colunaAtual + 1] === 0 || (colunaAtual < caminho[j].length - 2 && proximaLinha[colunaAtual + 2] === 0)) {
-                colunaAtual++;
-                caminhofeito.push(colunaAtual);
-            }
+
+        if (coluna < 0 || coluna >= caminho[0].length || caminho[linha][coluna] === 1) {
+            return false;
         }
+
+        trajeto.push(coluna);
+
+        if (resolver(linha + 1, coluna, trajeto) || 
+            resolver(linha + 1, coluna - 1, trajeto) || 
+            resolver(linha + 1, coluna + 1, trajeto)) {
+            return true;
+        }
+
+        trajeto.pop();
+        return false;
+    }
+
+    if (resolver(0, 1, [])) {
+    } else {
+        return "Sem caminho possível";
     }
 }
-caminhocerto();
-console.log(caminhofeito)
+
 let toque = 0;
 
 function calculartoque() {
-    for (let i = 0; i < caminhofeito.length - 1; i++){
-        caminhofeito[i] != caminhofeito[i+1] ? toque++ : null;
+    for (let i = 0; i < resultado.length - 1; i++){
+        resultado[i] != resultado[i+1] ? toque++ : null;
     }
 }
 calculartoque();

@@ -1,5 +1,8 @@
-var input = require('fs').readFileSync('/dev/stdin', 'utf8');
-var lines = input.trim().split(/\r?\n/);
+const input = `5 2 10
+0 0
+5 10`;
+
+const lines = input.trim().split(/\r?\n/);
 
 var lineIdx = 0;
 while (lineIdx < lines.length) {

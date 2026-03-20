@@ -1,6 +1,6 @@
-var input = require('fs').readFileSync('/dev/stdin', 'utf8');
-var lines = input.split('\n');
-const n = parseInt(lines[0]);
+// var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+// var lines = input.split('\n');
+const n = [3];
 
 
 const matriz = Array.from({ length: n }, () => Array(n).fill(null));
