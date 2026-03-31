@@ -13,7 +13,7 @@ Repositório dedicado aos estudos da trilha de **Base de Programação**, com fo
 * [x] Lógica de programação: praticando com desafios
 
 ### 2. Html e CSS - Base essencial do Front-end
-* [ ] HTML e CSS para projetos web (trilha 2/6 feitos)
+* [ ] HTML e CSS para projetos web (trilha 5/6 feitos)
 * [ ] HTML e CSS: responsividade em layouts
 * [ ] HTML e CSS: formulários, SEO e acessibilidade
 * [ ] HTML e CSS: ambiente, estrutura e estilo
