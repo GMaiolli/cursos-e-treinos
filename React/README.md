@@ -13,15 +13,15 @@ Repositório dedicado aos estudos da trilha de **Base de Programação**, com fo
 * [x] Lógica de programação: praticando com desafios
 
 ### 2. Html e CSS - Base essencial do Front-end
-* [ ] HTML e CSS para projetos web (trilha 5/6 feitos)
-* [ ] HTML e CSS: responsividade em layouts
-* [ ] HTML e CSS: formulários, SEO e acessibilidade
-* [ ] HTML e CSS: ambiente, estrutura e estilo
-* [ ] SASS e CSS: estilizando um site
+* [x] HTML e CSS para projetos web (trilha 6/6 feitos)
+* [x] HTML e CSS: responsividade em layouts
+* [x] HTML e CSS: formulários, SEO e acessibilidade
+* [x] HTML e CSS: ambiente, estrutura e estilo
+* [x] SASS e CSS: estilizando um site
 
 ### 3. TypeScript
-* [ ] Melhore sua experiência de desenvolvimento com TypeScript
-* [ ] Aplique TypeScript no front-end
+* [ ] Melhore sua experiência de desenvolvimento com TypeScript (trilha 1/3 feitos)
+* [ ] Aplique TypeScript no front-end (trilha 0/3 feitos)
 * [ ] TypeScript: o paradigma funcional do front-end
 
 ### 4. React - Web
@@ -48,6 +48,6 @@ Repositório dedicado aos estudos da trilha de **Base de Programação**, com fo
 * [ ] Como criar biblioteca externa para o React Native
 
 ---
-> **Status Atual:** 1/5 Módulos Concluídos
+> **Status Atual:** 2/5 Módulos Concluídos
 ---
 *Organizado por: Gabriel Maiolli de Oliveira*
