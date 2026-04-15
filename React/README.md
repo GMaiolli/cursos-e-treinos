@@ -20,9 +20,9 @@ Repositório dedicado aos estudos da trilha de **Base de Programação**, com fo
 * [x] SASS e CSS: estilizando um site
 
 ### 3. TypeScript
-* [ ] Melhore sua experiência de desenvolvimento com TypeScript (trilha 3/3 feitos)
-* [ ] Aplique TypeScript no front-end (trilha 0/3 feitos)
-* [ ] TypeScript: o paradigma funcional do front-end
+* [x] Melhore sua experiência de desenvolvimento com TypeScript (trilha 3/3 feitos)
+* [x] Aplique TypeScript no front-end (trilha 3/3 feitos)
+* [x] TypeScript: o paradigma funcional do front-end
 
 ### 4. React - Web
 * [ ] React: entendendo como a biblioteca funciona
