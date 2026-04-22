@@ -25,9 +25,9 @@ Repositório dedicado aos estudos da trilha de **Base de Programação**, com fo
 * [x] TypeScript: o paradigma funcional do front-end
 
 ### 4. React - Web
-* [ ] React: entendendo como a biblioteca funciona
-* [ ] React: ciclo de vida dos componentes
-* [ ] React: Function Components, uma abordagem moderna
+* [x] React: entendendo como a biblioteca funciona
+* [x] React: ciclo de vida dos componentes
+* [x] React: Function Components, uma abordagem moderna
 * [ ] Explore React com JavaScript (trilha 0/7 feitos)
 * [ ] React: Hooks, Contextos e boas práticas
 * [ ] React: conhecendo a biblioteca React Router
@@ -48,6 +48,6 @@ Repositório dedicado aos estudos da trilha de **Base de Programação**, com fo
 * [ ] Como criar biblioteca externa para o React Native
 
 ---
-> **Status Atual:** 2/5 Módulos Concluídos
+> **Status Atual:** 3/5 Módulos Concluídos
 ---
 *Organizado por: Gabriel Maiolli de Oliveira*
