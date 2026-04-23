@@ -24,7 +24,7 @@ export class Student {
     province: string,
     city: string,
     state: string,
-    country: string
+    country: string,
   ) {
     this.watchedVideos = new WatchedVideos();
     this.email = email;
@@ -56,11 +56,11 @@ export class Student {
 
   public hasAccess(): boolean {
     if (this.watchedVideos.count() === 0) {
-        return true;
-    } 
-    return this.firstVIdeoWasWatchedInLessThan90Days()
+      return true;
+    }
+    return this.firstVIdeoWasWatchedInLessThan90Days();
   }
-  
+
   private firstVIdeoWasWatchedInLessThan90Days(): boolean {
     const firstDate = this.watchedVideos.dateOfFirstVideo();
     const today = new Date();
