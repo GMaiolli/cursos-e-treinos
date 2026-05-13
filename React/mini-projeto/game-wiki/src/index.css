@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-    --font-pixel: "Press Start 2P", monospace;
+  --font-pixel: "Press Start 2P", monospace;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  background-color: #09090b; /* zinc-950 */
+}
+
+body {
+  margin: 0;
 }

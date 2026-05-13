@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import AgentsDetails from './pages/AgentsDetails';
-import PokemonDetails from './pages/PokemonDetails';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import AgentsDetails from "./pages/AgentsDetails";
+import PokemonDetails from "./pages/PokemonDetails";
 
 function App() {
   return (
@@ -15,4 +15,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

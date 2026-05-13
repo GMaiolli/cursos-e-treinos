@@ -4,7 +4,9 @@ import { useParams } from "react-router-dom";
 const PokemonDetails = () => {
   const { id } = useParams();
   const [pokemon, setPokemon] = useState(null);
-  const [loading, setLoading] = useState(true);    const [locations, setLocations] = useState([]);  const typeColors = {
+  const [loading, setLoading] = useState(true);
+  const [locations, setLocations] = useState([]);
+  const typeColors = {
     normal: {
       bg: "bg-[#A8A878]",
       border: "border-[#6D6D4E]",
@@ -102,7 +104,9 @@ const PokemonDetails = () => {
     const controller = new AbortController();
     setLocations([]);
 
-    fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, { signal: controller.signal })
+    fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
+      signal: controller.signal,
+    })
       .then((res) => res.json())
       .then((data) => {
         if (cancelled) return;
@@ -126,7 +130,9 @@ const PokemonDetails = () => {
             .then((res) => res.json())
             .then((locData) => {
               if (cancelled) return;
-              const locationNames = locData.map((loc) => loc.location_area.name);
+              const locationNames = locData.map(
+                (loc) => loc.location_area.name,
+              );
               setLocations(locationNames);
             })
             .catch(() => {
@@ -160,17 +166,17 @@ const PokemonDetails = () => {
     );
 
   return (
-    <div className="bg-zinc-950 min-h-screen text-white font-pixel p-10 flex items-center justify-center">
+    <div className="bg-zinc-950 min-h-dvh text-white font-pixel p-10 md:p2 md:p-10 flex items-center justify-center">
       <div className="max-w-6xl w-full flex gap-10">
         {/* Imagem - Esquerda */}
-        <div className="text-center relative">
+        <div className="hidden md:block text-center relative">
           <img
             src={pokemon.image}
             alt={pokemon.name}
             className="w-full h-full object-contain"
           />
           <p
-            className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 text-[80px] ${
+            className={`absolute left-1/2 transform -translate-x-1/2 text-[80px] ${
               pokemon.types && pokemon.types.length > 0
                 ? typeColors[pokemon.types[0].toLowerCase()].text
                 : "text-zinc-400"
@@ -181,77 +187,91 @@ const PokemonDetails = () => {
         </div>
 
         {/* Conteúdo - Direita */}
-        <div className="flex-1">
-          <h1 className="text-5xl font-bold uppercase italic mb-4">
-            {pokemon.name}
-          </h1>
+        <div className="flex-1 scale-150 md:scale-100 origin-top">
+          <div className="flex flex-col justify-center items-center">
+            <h1 className="md:text-5xl text-xl font-bold uppercase italic mb-4">
+              {pokemon.name}
+            </h1>
 
-          <div className="flex gap-2 mb-10">
-            {pokemon.types.map((type) => (
-              <span
-                key={type}
-                className={`px-2 py-0.5 rounded-sm border-4 text-[15px] font-pixel text-white uppercase tracking-wider shadow-sm ${typeColors[type.toLowerCase()].bg} ${typeColors[type.toLowerCase()].border}`}
-              >
-                {type}
-              </span>
-            ))}
+            <div className="flex gap-2 mb-10">
+              {pokemon.types.map((type) => (
+                <span
+                  key={type}
+                  className={`px-2 py-0.5 rounded-sm border-4 text-[8px] md:text-[15px] font-pixel text-white uppercase tracking-wider shadow-sm ${typeColors[type.toLowerCase()].bg} ${typeColors[type.toLowerCase()].border}`}
+                >
+                  {type}
+                </span>
+              ))}
+            </div>
+            <div className="block md:hidden">
+              <img
+                src={pokemon.image}
+                alt={pokemon.name}
+                className="w-40 object-contain"
+              />
+            </div>
           </div>
 
           {/* Grid 2x2 */}
-          <div className="grid grid-cols-2 gap-8">
+          <div className="flex flex-col items-center md:items-start md:grid md:grid-cols-2 gap-8">
             {/* Abilities - Topo Esquerda */}
             <div>
-              <h2 className="text-2xl font-bold mb-4 border-b border-zinc-800 pb-2">
+              <h2 className="md:text-2xl font-bold mb-4 border-b border-zinc-800 pb-2">
                 Abilities
               </h2>
               <div className="flex flex-col gap-2">
-                {pokemon.abilities && pokemon.abilities.map((ability) => (
-                  <span
-                    key={ability}
-                    className="px-3 py-1 bg-zinc-800 rounded-lg text-sm text-zinc-300 uppercase"
-                  >
-                    {ability}
-                  </span>
-                ))}
+                {pokemon.abilities &&
+                  pokemon.abilities.map((ability) => (
+                    <span
+                      key={ability}
+                      className="px-3 py-1 bg-zinc-800 rounded-lg text-[10px] md:text-sm text-zinc-300 uppercase"
+                    >
+                      {ability}
+                    </span>
+                  ))}
               </div>
             </div>
 
             {/* Locations - Topo Direita */}
             <div>
-              <h2 className="text-2xl font-bold mb-4 border-b border-zinc-800 pb-2">
+              <h2 className="md:text-2xl text-center md:text-start font-bold mb-4 border-b border-zinc-800 pb-2">
                 Localizações
               </h2>
-              <div className="flex flex-col gap-2 max-h-40 overflow-y-auto">
+              <div className="flex flex-col items-center md:items-start gap-2 md:max-h-25 max-w-55 md:max-w-full overflow-y-auto">
                 {locations && locations.length > 0 ? (
                   locations.map((location, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 bg-zinc-800 rounded-lg text-sm text-zinc-300 uppercase"
+                      className="px-3 py-1 bg-zinc-800 rounded-lg text-[10px] md:text-sm text-zinc-300 uppercase"
                     >
                       {location}
                     </span>
                   ))
                 ) : (
-                  <span className="text-zinc-500 text-sm italic">Nenhuma localização encontrada</span>
+                  <span className="text-zinc-500 text-sm italic">
+                    Nenhuma localização encontrada
+                  </span>
                 )}
               </div>
             </div>
 
             {/* Stats - Baixo Esquerda */}
             <div>
-              <h2 className="text-2xl font-bold mb-4 border-b border-zinc-800 pb-2">
+              <h2 className="md:text-2xl text-center md:text-start font-bold mb-4 border-b border-zinc-800 pb-2">
                 Stats
               </h2>
               <div className="flex flex-col gap-3">
                 {pokemon.stats.map((stat) => (
                   <div key={stat.name}>
                     <div className="flex justify-between text-sm mb-1">
-                      <span className="text-zinc-400 uppercase">{stat.name}</span>
+                      <span className="text-zinc-400 uppercase">
+                        {stat.name}
+                      </span>
                       <span>{stat.value}</span>
                     </div>
                     <div className="w-full bg-zinc-800 rounded-full h-2">
                       <div
-                        className="bg-yellow-400 h-2 rounded-full"
+                        className="bg-red-400 h-2 rounded-full"
                         style={{
                           width: `${Math.min((stat.value / 255) * 100, 100)}%`,
                         }}
@@ -264,14 +284,14 @@ const PokemonDetails = () => {
 
             {/* Moves - Baixo Direita */}
             <div>
-              <h2 className="text-2xl font-bold mb-4 border-b border-zinc-800 pb-2">
+              <h2 className="md:text-2xl text-center md:text-start font-bold mb-4 border-b border-zinc-800 pb-2">
                 Moves
               </h2>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex md:flex-wrap gap-2 flex-col items-center md:items-start">
                 {pokemon.moves.map((move) => (
                   <span
                     key={move}
-                    className="px-3 py-1 bg-zinc-800 rounded-lg text-sm text-zinc-300 uppercase"
+                    className="px-3 py-1 bg-zinc-800 rounded-lg text-[10px] md:text-sm text-zinc-300 uppercase"
                   >
                     {move}
                   </span>

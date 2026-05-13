@@ -28,26 +28,26 @@ Repositório dedicado aos estudos da trilha de **Base de Programação**, com fo
 * [x] React: entendendo como a biblioteca funciona
 * [x] React: ciclo de vida dos componentes
 * [x] React: Function Components, uma abordagem moderna
-* [ ] Explore React com JavaScript (trilha 0/7 feitos)
-* [ ] React: Hooks, Contextos e boas práticas
-* [ ] React: conhecendo a biblioteca React Router
-* [ ] React: migrando para o Vite e implementando autenticação baseada em Token
-* [ ] Gerencie estados em React com Redux (trilha 0/5 feitos)
-* [ ] React: gerencie e valide formulários com o React Hook Form
-* [ ] React: intefrando seu projeto React com APIs
-* [ ] React: testando os seus componentes
+* [x] Explore React com JavaScript (trilha 7/7 feitos)
+* [x] React: Hooks, Contextos e boas práticas
+* [x] React: conhecendo a biblioteca React Router
+* [x] React: migrando para o Vite e implementando autenticação baseada em Token
+* [x] Gerencie estados em React com Redux (trilha 5/5 feitos)
+* [x] React: gerencie e valide formulários com o React Hook Form
+* [x] React: intefrando seu projeto React com APIs
+* [x] React: testando os seus componentes
 
 ### 5. React-Native
-* [ ] Passo a passo de como configurar ambiente no React Native
-* [ ] React Native: Desenvolva seu primeiro app (trilha 0/4 feitos)
-* [ ] React Native: explorando ferramentas de desenvolvimento
-* [ ] React Native: Usando Módulos Nativos (trilha 0/2 feitos)
-* [ ] React Navigation ou Expo Router: qual escolher para o react native
-* [ ] React Native: Gerando o APK e o IPA
-* [ ] React Native: integrando câmera nativa para capturar fotos
-* [ ] Como criar biblioteca externa para o React Native
+* [x] Passo a passo de como configurar ambiente no React Native
+* [x] React Native: Desenvolva seu primeiro app (trilha 4/4 feitos)
+* [x] React Native: explorando ferramentas de desenvolvimento
+* [x] React Native: Usando Módulos Nativos (trilha 2/2 feitos)
+* [x] React Navigation ou Expo Router: qual escolher para o react native
+* [x] React Native: Gerando o APK e o IPA
+* [x] React Native: integrando câmera nativa para capturar fotos
+* [x] Como criar biblioteca externa para o React Native
 
 ---
-> **Status Atual:** 3/5 Módulos Concluídos
+> **Status Atual:** 5/5 Módulos Concluídos
 ---
 *Organizado por: Gabriel Maiolli de Oliveira*
